@@ -129,4 +129,5 @@ function runner(text) {
         k++;
     }
 }
+document.getElementById("zyrikl").style = "display: none;";
 runner(document.getElementById("zyrikl"));
