@@ -12,7 +12,6 @@ It's easy! Just paste the following HTML code in:
 // Insert Zyrikl here: ;
 </div>
 <script src="https://github.com/neutral-electron/zyrikl/blob/main/zyriklcompressed.js"></script>
-</body>
 </html>
 ```
 > ## Where do I learn Zyrikl?
