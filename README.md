@@ -8,9 +8,9 @@ It's easy! Just paste the following HTML code in:
 ```
 <!DOCTYPE html>
 <html>
-<div id="zyrikl">
+<span id="zyrikl">
 // Insert Zyrikl here: ;
-</div>
+</span>
 <script src="https://github.com/neutral-electron/zyrikl/blob/main/zyriklcompressed.js"></script>
 </html>
 ```
