@@ -9,7 +9,7 @@ function runner(input) {
             getvaluelist.splice(i, 1);
         }
         if (getvaluelist[i]+getvaluelist[i+1] === "\n\n") {
-            getvaluelist.splice(i, 2);
+            getvaluelist.splice(i, 1);
         }
     }
     
@@ -123,18 +123,8 @@ function runner(input) {
             input.innerHTML = input.innerHTML + "</ "+element+">";
         }
     }
-
     
-    var lineskeyword = "Zyrikl";
-    
-    function findtitle() {
-        var linesfirst = lines[0].split("");
-        if (linesfirst[0]+linesfirst[1]+linesfirst[2]+linesfirst[3]+linesfirst[4] === "HEAD ") {
-            for (var mn = 6; mn < linesfirst.length()-1; mn ++) {
-                lineskeyword = lineskeyword + linesfirst[mn];
-            }
-        }
-    }
+    var lineskeyword = "Zyrikl Website";
 
     input.innerHTML = `
     <head>
@@ -143,7 +133,7 @@ function runner(input) {
     </head>
     <body>`;
 
-    for (var h = 1; h < lines.length; h++) {
+    for (var h = 0; h < lines.length; h++) {
         keyWordOneArg("echo", "p", lines[h]);
         keyWordOneArg("print", "p", lines[h]);
         keyWordOneArg("title", "h1", lines[h]);
