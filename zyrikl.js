@@ -1,7 +1,5 @@
-function runner(text) {
-    const output = document.getElementById("zyrikloutput"); 
-    output.innerHTML = "";
-    const getvalue = text.innerHTML;
+function runner(input) {
+    const getvalue = input.innerHTML;
     const getvaluelist = getvalue.split("");
     const lines = [];
     var k = 1;
@@ -10,8 +8,11 @@ function runner(text) {
         if (getvaluelist[i] === "\n") {
             getvaluelist.splice(i, 1);
         }
+        if (getvaluelist[i]+getvaluelist[i+1] === "\n\n") {
+            getvaluelist.splice(i, 2);
+        }
     }
-
+    
     var wordstart = 0;
     const t = 0;
 
@@ -43,7 +44,7 @@ function runner(text) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            output.innerHTML = output.innerHTML + "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+">";
+            input.innerHTML = input.innerHTML + "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+">";
         }
     }
 
@@ -72,7 +73,7 @@ function runner(text) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            output.innerHTML = output.innerHTML + "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+">";
+            input.innerHTML = input.innerHTML + "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+">";
         }
     }
 
@@ -101,17 +102,48 @@ function runner(text) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            output.innerHTML = output.innerHTML + "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+'" />';
+            input.innerHTML = input.innerHTML + "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+'" />';
         }
     }
 
     function noArg(keyword, element, text) {
         if (text === keyword) {
-            output.innerHTML = output.innerHTML + "<"+element+" id='line"+k.toString()+"' />";
+            input.innerHTML = input.innerHTML + "<"+element+" id='line"+k.toString()+"' />";
         }
     }
 
-    for (var h = 0; h < lines.length; h++) {
+    function begin(element, keyword, text) {
+        if (text === "BEGIN "+keyword) {
+            input.innerHTML = input.innerHTML + "<"+element+" id='line"+k.toString()+"' >";
+        }
+    }
+
+    function end(element, keyword, text) {
+        if (text === "END "+keyword) {
+            input.innerHTML = input.innerHTML + "</ "+element+">";
+        }
+    }
+
+    
+    var lineskeyword = "Zyrikl";
+    
+    function findtitle() {
+        var linesfirst = lines[0].split("");
+        if (linesfirst[0]+linesfirst[1]+linesfirst[2]+linesfirst[3]+linesfirst[4] === "HEAD ") {
+            for (var mn = 6; mn < linesfirst.length()-1; mn ++) {
+                lineskeyword = lineskeyword + linesfirst[mn];
+            }
+        }
+    }
+
+    input.innerHTML = `
+    <head>
+        <meta charset="utf-8 />
+        <title>`+lineskeyword+`</title>
+    </head>
+    <body>`;
+
+    for (var h = 1; h < lines.length; h++) {
         keyWordOneArg("echo", "p", lines[h]);
         keyWordOneArg("print", "p", lines[h]);
         keyWordOneArg("title", "h1", lines[h]);
@@ -120,14 +152,17 @@ function runner(text) {
         keyWordOneArg("header3", "h4", lines[h]);
         keyWordOneArg("header4", "h5", lines[h]);
         keyWordOneArg("header5", "h6", lines[h]);
-        keyWordOneArg("title", "title", lines[h]);
+        keyWordOneArg("HEAD", "title", lines[h]);
         keyWordTwoArg("link", "a", lines[h], "href");
         keyWordTwoArg("webdriver", "iframe", lines[h], "src");
         closedTag("img", "img", lines[h], "src");
         noArg("line", "hr", lines[h]);
         noArg("break", "br", lines[h]);
+        begin("div", "container", lines[h]);
+        end("div", "container", lines[h]);
         k++;
     }
+    input.innerHTML = input.innerHTML + "</body>";
 }
-document.getElementById("zyrikl").style = "display: none;";
-runner(document.getElementById("zyrikl"));
+const inputval = document.getElementById("zyrikl");
+runner(inputval);
