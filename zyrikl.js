@@ -130,6 +130,7 @@ function runner(input) {
     <head>
         <meta charset="utf-8 />
         <title>`+lineskeyword+`</title>
+        <style id="styling"></style>
     </head>
     <body>`;
 
@@ -150,6 +151,10 @@ function runner(input) {
         noArg("break", "br", lines[h]);
         begin("div", "container", lines[h]);
         end("div", "container", lines[h]);
+        closedTag("input", "input", lines[h], "type");
+        begin("form", "form", lines[h]);
+        end("form", "form", lines[h]);
+        keyWordOneArg("write", "textarea", lines[h]);
         k++;
     }
     input.innerHTML = input.innerHTML + "</body>";
