@@ -11,7 +11,7 @@ It's easy! Just paste the following HTML code in:
 <span id="zyrikl">
 // Insert Zyrikl here: ;
 </span>
-<script src="https://github.com/neutral-electron/zyrikl/blob/main/zyriklcompressed.js"></script>
+<script src="https://neutral-electron.github.io/zyrikl/zyrikl.js"></script>
 </html>
 ```
 > ## Where do I learn Zyrikl?
