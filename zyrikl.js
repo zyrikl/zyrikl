@@ -65,7 +65,7 @@ function runner(input) {
             var firstz = 0;
             for (var z = 0; z < newr.length; z++) {
                 if (newr[z] === " ") {
-                    if (firstz !== 0) {
+                    if (firstz < 3) {
                         savelink = z;
                         firstz += 1;
                     } else {
