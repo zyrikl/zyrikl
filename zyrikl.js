@@ -62,9 +62,15 @@ function runner(input) {
             newr.splice(0, 1);
             newr.splice(newr.length-1, 1);
             var savelink = 0;
+            var firstz = 0;
             for (var z = 0; z < newr.length; z++) {
                 if (newr[z] === " ") {
-                    savelink = z;
+                    if (firstz !== 0) {
+                        savelink = z;
+                        firstz += 1;
+                    } else {
+                        z = z;
+                    }
                 }
             }
             for (var q = 0; q < savelink; q++) {
