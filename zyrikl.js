@@ -76,7 +76,7 @@ function runner(input) {
             for (var q = 0; q < savelink; q++) {
                 newd1 = newd1 + newr[q];
             }
-            for (var x = savelink+1; x < newr.length; x++) {
+            for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
             input.innerHTML = input.innerHTML + "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+">";
