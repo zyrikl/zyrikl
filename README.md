@@ -16,4 +16,4 @@ It's easy! Just paste the following HTML code in:
 ```
 > ## Where do I learn Zyrikl?
 
-Follow the instructions at https://neutral-electron.github.io/zyrikl/learn.
+Follow the instructions at https://zyrikl.github.io/zyrikl/learn.
