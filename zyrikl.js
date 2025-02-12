@@ -144,7 +144,7 @@ function runner(input) {
 
     for (var h = 0; h < lines.length; h++) {
         changelinesh = lines[h];
-        changelinesharray = changelinesh.split("");
+        /* changelinesharray = changelinesh.split("");
         for (var findindent = 0; findindent < changelinesharray.length(); findindent++) {
             if (changelinesharray[findindent] === "\n") {
                 changelinesharray.splice(findindent, 1);
@@ -155,7 +155,7 @@ function runner(input) {
         }
         for (var fixlinesh = 0; fixlinesh < changelinesharray.length(); fixlinesh++) {
             changelinesh = changelinesh + changelinesharray[fixlinesh];
-        }
+        } */
         keyWordOneArg("echo", "p", changelinesh);
         keyWordOneArg("print", "p", changelinesh);
         keyWordOneArg("title", "h1", changelinesh);
