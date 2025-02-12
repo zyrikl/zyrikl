@@ -153,6 +153,9 @@ function runner(input) {
                 changelinesharray.splice(0, 4);
             }
         }
+        for (var fixlinesh = 0; fixlinesh < changelinesharray.length(); fixlinesh++) {
+            changelinesh = changelinesh + changelinesharray[fixlinesh];
+        }
         keyWordOneArg("echo", "p", changelinesh);
         keyWordOneArg("print", "p", changelinesh);
         keyWordOneArg("title", "h1", changelinesh);
