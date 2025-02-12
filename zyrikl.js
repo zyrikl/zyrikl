@@ -140,27 +140,40 @@ function runner(input) {
     </head>
     <body>`;
 
+    var changelinesh = "";
+
     for (var h = 0; h < lines.length; h++) {
-        keyWordOneArg("echo", "p", lines[h]);
-        keyWordOneArg("print", "p", lines[h]);
-        keyWordOneArg("title", "h1", lines[h]);
-        keyWordOneArg("header1", "h2", lines[h]);
-        keyWordOneArg("header2", "h3", lines[h]);
-        keyWordOneArg("header3", "h4", lines[h]);
-        keyWordOneArg("header4", "h5", lines[h]);
-        keyWordOneArg("header5", "h6", lines[h]);
-        keyWordOneArg("HEAD", "title", lines[h]);
-        keyWordTwoArg("link", "a", lines[h], "href");
-        keyWordTwoArg("webdriver", "iframe", lines[h], "src");
-        closedTag("img", "img", lines[h], "src");
-        noArg("line", "hr", lines[h]);
-        noArg("break", "br", lines[h]);
-        begin("div", "container", lines[h]);
-        end("div", "container", lines[h]);
-        closedTag("input", "input", lines[h], "type");
-        begin("form", "form", lines[h]);
-        end("form", "form", lines[h]);
-        keyWordOneArg("write", "textarea", lines[h]);
+        changelinesh = lines[h];
+        changelinesharray = changelinesh.split("");
+        for (var findindent = 0; findindent < changelinesharray.length(); findindent++) {
+            if (changelinesharray[findindent] === "\n") {
+                changelinesharray.splice(findindent, 1);
+            }
+            if (changelinesharray[0] === " ") {
+                changelinesharray.splice(0, 4);
+            }
+        }
+        keyWordOneArg("echo", "p", changelinesh);
+        keyWordOneArg("print", "p", changelinesh);
+        keyWordOneArg("title", "h1", changelinesh);
+        keyWordOneArg("header1", "h2", changelinesh);
+        keyWordOneArg("header2", "h3", changelinesh);
+        keyWordOneArg("header3", "h4", changelinesh);
+        keyWordOneArg("header4", "h5", changelinesh);
+        keyWordOneArg("header5", "h6", changelinesh);
+        keyWordOneArg("HEAD", "title", changelinesh);
+        keyWordTwoArg("link", "a", changelinesh, "href");
+        keyWordTwoArg("webdriver", "iframe", changelinesh, "src");
+        closedTag("img", "img", changelinesh, "src");
+        noArg("line", "hr", changelinesh);
+        noArg("break", "br", changelinesh);
+        begin("div", "container", changelinesh);
+        end("div", "container", changelinesh);
+        closedTag("input", "input", changelinesh, "type");
+        begin("form", "form", changelinesh);
+        end("form", "form", changelinesh);
+        keyWordOneArg("write", "textarea", changelinesh);
+        keyWordOneArg("codeblock", "code", changelinesh);
         k++;
     }
     input.innerHTML = input.innerHTML + "</body>";
