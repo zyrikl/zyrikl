@@ -179,6 +179,31 @@ function runner(input) {
         keyWordOneArg("codeblock", "code", changelinesh);
         k++;
     }
+    input.innerHTML = input.innerHTML + `<style>
+            h1 {
+                font-size: 50pt;
+            }
+            h2 {
+                font-size: 40pt;
+            }
+            h3 {
+                font-size: 35pt;
+            }
+            h4 {
+                font-size: 30pt;
+            }
+            h5 {
+                font-size: 25pt;
+            }
+            h6 {
+                font-size: 20pt;
+            }
+            iframe {
+                width: 800px;
+                height: 500px;
+            }
+        </style>
+    </body>`;
     input.innerHTML = input.innerHTML + "</body>";
 }
 const inputval = document.getElementById("zyrikl");
