@@ -11,6 +11,11 @@ function runner(input) {
         if (getvaluelist[i]+getvaluelist[i+1] === ";;") {
             getvaluelist.splice(i, 1);
         }
+        if (getvaluelist[i] === " ") {
+            if (getvaluelist[i] !== '"') {
+                getvaluelist.splice(i, 1);
+            }
+        }
     }
     
     var wordstart = 0;
