@@ -11,11 +11,11 @@ function runner(input) {
         if (getvaluelist[i]+getvaluelist[i+1] === ";;") {
             getvaluelist.splice(i, 1);
         }
-        if (getvaluelist[i] === " ") {
+        /* if (getvaluelist[i] === " ") {
             if (getvaluelist[i+1] !== '"') {
                 getvaluelist.splice(i, 1);
             }
-        }
+        } */
     }
     
     var wordstart = 0;
@@ -185,28 +185,13 @@ function runner(input) {
         k++;
     }
     input.innerHTML = input.innerHTML + `<style>
-            h1 {
-                font-size: 50pt;
-            }
-            h2 {
-                font-size: 40pt;
-            }
-            h3 {
-                font-size: 35pt;
-            }
-            h4 {
-                font-size: 30pt;
-            }
-            h5 {
-                font-size: 25pt;
-            }
-            h6 {
-                font-size: 20pt;
-            }
-            iframe {
-                width: 800px;
-                height: 500px;
-            }
+            h1 {font-size: 50pt;}
+            h2 {font-size: 40pt;}
+            h3 {font-size: 35pt;}
+            h4 {font-size: 30pt;}
+            h5 {font-size: 25pt;}
+            h6 {font-size: 20pt;}
+            iframe {width: 800px;height: 500px;}
         </style>
     </body>`;
     input.innerHTML = input.innerHTML + "</body>";
