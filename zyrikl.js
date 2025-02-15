@@ -12,7 +12,7 @@ function runner(input) {
             getvaluelist.splice(i, 1);
         }
         if (getvaluelist[i] === " ") {
-            if (getvaluelist[i] !== '"') {
+            if (getvaluelist[i+1] !== '"') {
                 getvaluelist.splice(i, 1);
             }
         }
