@@ -2,7 +2,8 @@ function runner(input) {
     const getvalue = input.innerHTML;
     const getvaluelist = getvalue.split("");
     const lines = [];
-    var k = 1;
+    var totalInnerHTML = "";
+    var k = 3;
 
     for (var i = 0; i < getvaluelist.length; i++) {
         if (getvaluelist[i] === ";") {
@@ -11,11 +12,12 @@ function runner(input) {
         if (getvaluelist[i]+getvaluelist[i+1] === ";;") {
             getvaluelist.splice(i, 1);
         }
-        /* if (getvaluelist[i] === " ") {
-            if (getvaluelist[i+1] !== '"') {
+        if (getvaluelist[i] === " ") {
+            if (getvaluelist[i+1] === " ") {
                 getvaluelist.splice(i, 1);
+                getvaluelist.splice(i+1, 1);
             }
-        } */
+        }
     }
     
     var wordstart = 0;
@@ -49,7 +51,7 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            input.innerHTML = input.innerHTML + "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+">";
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+">";
         }
     }
 
@@ -84,7 +86,7 @@ function runner(input) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            input.innerHTML = input.innerHTML + "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+">";
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+">";
         }
     }
 
@@ -113,25 +115,25 @@ function runner(input) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            input.innerHTML = input.innerHTML + "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+'" />';
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+'" />';
         }
     }
 
     function noArg(keyword, element, text) {
         if (text === keyword) {
-            input.innerHTML = input.innerHTML + "<"+element+" id='line"+k.toString()+"' />";
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+"' />";
         }
     }
 
     function begin(element, keyword, text) {
         if (text === "BEGIN "+keyword) {
-            input.innerHTML = input.innerHTML + "<"+element+" id='line"+k.toString()+"' >";
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+"' >";
         }
     }
 
     function end(element, keyword, text) {
         if (text === "END "+keyword) {
-            input.innerHTML = input.innerHTML + "</ "+element+">";
+            totalInnerHTML += "</ "+element+">";
         }
     }
     
@@ -139,7 +141,7 @@ function runner(input) {
 
     input.innerHTML = `
     <head>
-        <meta charset="utf-8 />
+        <meta charset="utf-8" />
         <title>`+lineskeyword+`</title>
         <style id="styling"></style>
     </head>
@@ -149,18 +151,6 @@ function runner(input) {
 
     for (var h = 0; h < lines.length; h++) {
         changelinesh = lines[h];
-        /* changelinesharray = changelinesh.split("");
-        for (var findindent = 0; findindent < changelinesharray.length(); findindent++) {
-            if (changelinesharray[findindent] === "\n") {
-                changelinesharray.splice(findindent, 1);
-            }
-            if (changelinesharray[0] === " ") {
-                changelinesharray.splice(0, 4);
-            }
-        }
-        for (var fixlinesh = 0; fixlinesh < changelinesharray.length(); fixlinesh++) {
-            changelinesh = changelinesh + changelinesharray[fixlinesh];
-        } */
         keyWordOneArg("echo", "p", changelinesh);
         keyWordOneArg("print", "p", changelinesh);
         keyWordOneArg("title", "h1", changelinesh);
@@ -184,6 +174,7 @@ function runner(input) {
         keyWordOneArg("codeblock", "code", changelinesh);
         k++;
     }
+    input.innerHTML += totalInnerHTML;
     input.innerHTML = input.innerHTML + `<style>
             h1 {font-size: 50pt;}
             h2 {font-size: 40pt;}
