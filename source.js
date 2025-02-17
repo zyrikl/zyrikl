@@ -51,7 +51,26 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+">";
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+`>\n`;
+        }
+    }
+
+    function displaytext(keyword, text) {
+        const d = text.split(" ");
+        if (d[0] === keyword) {
+            const keyworddetected = d[0].split("");
+            const newd = text.split("");
+            const newr = [];
+            for (var p = keyworddetected.length+1; p < newd.length; p++) {
+                newr.push(newd[p]);
+            }
+            var newd1 = "";
+            newr.splice(0, 1);
+            newr.splice(newr.length-1, 1);
+            for (var q = 0; q < newr.length; q++) {
+                newd1 = newd1 + newr[q];
+            }
+            totalInnerHTML += newd1 + `\n`;
         }
     }
 
@@ -86,7 +105,7 @@ function runner(input) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+">";
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+`>\n`;
         }
     }
 
@@ -115,44 +134,36 @@ function runner(input) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+'" />';
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+`" />\n`;
         }
     }
 
     function noArg(keyword, element, text) {
         if (text === keyword) {
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+"' />";
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' />\n`;
         }
     }
 
     function begin(element, keyword, text) {
         if (text === "BEGIN "+keyword) {
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+"' >";
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' >\n`;
         }
     }
 
     function end(element, keyword, text) {
         if (text === "END "+keyword) {
-            totalInnerHTML += "</ "+element+">";
+            totalInnerHTML += "</ "+element+`>\n`;
         }
     }
     
-    var lineskeyword = "Zyrikl Website";
-
-    input.innerHTML = `
-    <head>
-        <meta charset="utf-8" />
-        <title>`+lineskeyword+`</title>
-        <style id="styling"></style>
-    </head>
-    <body>`;
+    var lineskeyword = "Website made with Zyrikl";
 
     var changelinesh = "";
 
     for (var h = 0; h < lines.length; h++) {
         changelinesh = lines[h];
         keyWordOneArg("echo", "p", changelinesh);
-        keyWordOneArg("print", "p", changelinesh);
+        displaytext("print", changelinesh);
         keyWordOneArg("title", "h1", changelinesh);
         keyWordOneArg("header1", "h2", changelinesh);
         keyWordOneArg("header2", "h3", changelinesh);
@@ -170,19 +181,27 @@ function runner(input) {
         closedTag("input", "input", changelinesh, "type");
         begin("form", "form", changelinesh);
         end("form", "form", changelinesh);
+        begin("code", "codeblock", changelinesh);
+        end("code", "codeblock", changelinesh);
         keyWordOneArg("write", "textarea", changelinesh);
         keyWordOneArg("codeblock", "code", changelinesh);
         k++;
     }
-    input.innerHTML += totalInnerHTML;
-    input.innerHTML = input.innerHTML + `<style>
+    input.innerHTML = `
+    <head>
+        <meta charset="utf-8" >
+        <title>`+lineskeyword+`</title>
+        <style id="styling"></style>
+    </head>
+    <body>` + totalInnerHTML + `<style>
             h1 {font-size: 50pt;}
             h2 {font-size: 40pt;}
             h3 {font-size: 35pt;}
             h4 {font-size: 30pt;}
             h5 {font-size: 25pt;}
             h6 {font-size: 20pt;}
-            iframe {width: 800px;height: 500px;}
+            iframe {width: 800px; height: 500px;}
+            code {padding: 10px; background: black; color: white; display: inline-block; width: 800px;}
         </style>
     </body>`;
     input.innerHTML = input.innerHTML + "</body>";
