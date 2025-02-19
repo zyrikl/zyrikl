@@ -144,13 +144,10 @@ function runner(input) {
         }
     }
 
-    function begin(element, keyword, text) {
+    function beginEnd(element, keyword, text) {
         if (text === "BEGIN "+keyword) {
             totalInnerHTML += "<"+element+" id='line"+k.toString()+`' >\n`;
         }
-    }
-
-    function end(element, keyword, text) {
         if (text === "END "+keyword) {
             totalInnerHTML += "</ "+element+`>\n`;
         }
@@ -176,24 +173,22 @@ function runner(input) {
         closedTag("img", "img", changelinesh, "src");
         noArg("line", "hr", changelinesh);
         noArg("break", "br", changelinesh);
-        begin("div", "container", changelinesh);
-        end("div", "container", changelinesh);
+        beginEnd("div", "container", changelinesh);
         closedTag("input", "input", changelinesh, "type");
-        begin("form", "form", changelinesh);
-        end("form", "form", changelinesh);
-        begin("code", "codeblock", changelinesh);
-        end("code", "codeblock", changelinesh);
+        beginEnd("form", "form", changelinesh);
+        beginEnd("code", "codeblock", changelinesh);
         keyWordOneArg("write", "textarea", changelinesh);
         keyWordOneArg("codeblock", "code", changelinesh);
+        beginEnd("h2", "header", changelinesh);
         k++;
     }
     input.innerHTML = `
     <head>
         <meta charset="utf-8" >
-        <title>`+lineskeyword+`</title>
         <style id="styling"></style>
     </head>
-    <body>` + totalInnerHTML + `<style>
+    <body>
+        <style>
             h1 {font-size: 50pt;}
             h2 {font-size: 40pt;}
             h3 {font-size: 35pt;}
@@ -202,9 +197,8 @@ function runner(input) {
             h6 {font-size: 20pt;}
             iframe {width: 800px; height: 500px;}
             code {padding: 10px; background: black; color: white; display: inline-block; width: 800px;}
-        </style>
-    </body>`;
-    input.innerHTML = input.innerHTML + "</body>";
+        </style>`;
+    input.insertAdjacentHTML("afterend", totalInnerHTML+"</body>");
 }
 const inputval = document.getElementById("zyrikl");
 runner(inputval);
