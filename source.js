@@ -7,7 +7,9 @@ function runner(input) {
 
     for (var i = 0; i < getvaluelist.length; i++) {
         if (getvaluelist[i] === ";") {
-            getvaluelist.splice(i, 1);
+            if (getvaluelist[i+1] !== `"`) {
+                getvaluelist.splice(i, 1);
+            }
         }
         if (getvaluelist[i]+getvaluelist[i+1] === ";;") {
             getvaluelist.splice(i, 1);
