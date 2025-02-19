@@ -70,7 +70,7 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += newd1 + `\n`;
+            totalInnerHTML += newd1 + `<br />`;
         }
     }
 
