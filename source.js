@@ -114,27 +114,17 @@ function runner(input) {
     function closedTag(keyword, element, text, src) {
         const d = text.split(" ");
         if (d[0] === keyword) {
-            const keyworddetected = d[0].split("");
+           const keyworddetected = d[0].split("");
             const newd = text.split("");
             const newr = [];
             for (var p = keyworddetected.length+1; p < newd.length; p++) {
                 newr.push(newd[p]);
             }
             var newd1 = "";
-            var newd2 = "";
             newr.splice(0, 1);
             newr.splice(newr.length-1, 1);
-            var savelink = 0;
-            for (var z = 0; z < newr.length; z++) {
-                if (newr[z] === " ") {
-                    savelink = z;
-                }
-            }
-            for (var q = 0; q < savelink; q++) {
+            for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
-            }
-            for (var x = savelink+2; x < newr.length; x++) {
-                newd2 = newd2 + newr[x];
             }
             totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+`" />\n`;
         }
@@ -176,10 +166,11 @@ function runner(input) {
         noArg("line", "hr", changelinesh);
         noArg("break", "br", changelinesh);
         beginEnd("div", "container", changelinesh);
-        closedTag("input", "input", changelinesh, "type");
+        closedTag("inputtext", "input type='text'", changelinesh, "placeholder");
+        closedTag("inputpassword", "input type='password'", changelinesh, "placeholder");
         beginEnd("form", "form", changelinesh);
         beginEnd("code", "codeblock", changelinesh);
-        keyWordOneArg("write", "textarea", changelinesh);
+        keyWordTwoArg("write", "textarea", changelinesh, "placeholder");
         keyWordOneArg("codeblock", "code", changelinesh);
         beginEnd("h2", "header", changelinesh);
         k++;
