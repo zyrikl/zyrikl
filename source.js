@@ -139,8 +139,10 @@ function runner(input) {
     function beginEnd(element, keyword, text) {
         if (text === "BEGIN "+keyword) {
             totalInnerHTML += "<"+element+" id='line"+k.toString()+`' >\n`;
-        } else if (text === "END "+keyword) {
-            totalInnerHTML += "</ "+element+`>\n`;
+        } else {
+            if (text === "END "+keyword) {
+                totalInnerHTML += "</ "+element+`>\n`;
+            }
         }
     }
     
