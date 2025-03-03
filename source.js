@@ -12,13 +12,13 @@ function runner(input) {
             }
         }
         if (getvaluelist[i]+getvaluelist[i+1] === ";;") {
-            getvaluelist.splice(i, 1);
+            getvaluelist.splice(i, 2);
         }
-        if (getvaluelist[i] === " ") {
-            if (getvaluelist[i+1] === " ") {
-                getvaluelist.splice(i, 1);
-                getvaluelist.splice(i+1, 1);
-            }
+        if (getvaluelist[i]+getvaluelist[i+1]+getvaluelist[i+2]+getvaluelist[i+3] === "    ") {
+            getvaluelist.splice(i, 4);
+        }
+        if (getvaluelist[i]+getvaluelist[i+1]+getvaluelist[i+2]+getvaluelist[i+3]+getvaluelist[i+4]+getvaluelist[i+6] +getvaluelist[i+7]+getvaluelist[i+8]=== "        ") {
+            getvaluelist.splice(i, 8);
         }
     }
     
