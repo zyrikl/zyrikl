@@ -57,7 +57,7 @@ function runner(input) {
         }
     }
 
-    function displaytext(keyword, text) {
+    function displaytext(keyword, text, additional) {
         const d = text.split(" ");
         if (d[0] === keyword) {
             const keyworddetected = d[0].split("");
@@ -72,7 +72,7 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += newd1 + `<br />`;
+            totalInnerHTML += newd1 + additional;
         }
     }
 
@@ -152,7 +152,8 @@ function runner(input) {
     for (var h = 0; h < lines.length; h++) {
         changelinesh = lines[h];
         keyWordOneArg("echo", "p", changelinesh);
-        displaytext("print", changelinesh);
+        displaytext("lined_text", changelinesh, "<br />");
+        displaytext("print", changelinesh, "");
         keyWordOneArg("title", "h1", changelinesh);
         keyWordOneArg("header1", "h2", changelinesh);
         keyWordOneArg("header2", "h3", changelinesh);
