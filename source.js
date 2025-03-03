@@ -192,7 +192,7 @@ function runner(input) {
             iframe {width: 800px; height: 500px;}
             code {padding: 10px; background: black; color: white; display: inline-block; width: 800px;}
         </style>`;
-    input.insertAdjacentHTML("beforeend", requiredstuff);
+    input.insertAdjacentHTML("beforebegin", requiredstuff);
     input.insertAdjacentHTML("afterend", totalInnerHTML+"</body>\n</html>");
 }
 const inputval = document.getElementById("zyrikl");
