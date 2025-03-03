@@ -192,6 +192,7 @@ function runner(input) {
             h6 {font-size: 20pt;}
             iframe {width: 800px; height: 500px;}
             code {padding: 10px; background: black; color: white; display: inline-block; width: 800px;}
+            #zyrikl {display: none;}
         </style>`;
     input.insertAdjacentHTML("beforebegin", requiredstuff);
     input.insertAdjacentHTML("afterend", totalInnerHTML+"</body>\n</html>");
