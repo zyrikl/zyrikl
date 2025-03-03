@@ -3,7 +3,7 @@ function runner(input) {
     const getvaluelist = getvalue.split("");
     const lines = [];
     var totalInnerHTML = "";
-    var k = 3;
+    var k = 1;
 
     for (var i = 0; i < getvaluelist.length; i++) {
         if (getvaluelist[i] === ";") {
