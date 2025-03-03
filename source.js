@@ -175,7 +175,8 @@ function runner(input) {
         beginEnd("h2", "header", changelinesh);
         k++;
     }
-    input.innerHTML = `
+    requiredstuff = `
+    <!DOCTYPE html>
     <head>
         <meta charset="utf-8" >
         <style id="styling"></style>
@@ -191,7 +192,8 @@ function runner(input) {
             iframe {width: 800px; height: 500px;}
             code {padding: 10px; background: black; color: white; display: inline-block; width: 800px;}
         </style>`;
-    input.insertAdjacentHTML("afterend", totalInnerHTML+"</body>");
+    input.insertAdjacentHTML("beforeend", requiredstuff);
+    input.insertAdjacentHTML("afterend", totalInnerHTML+"</body>\n</html>");
 }
 const inputval = document.getElementById("zyrikl");
 runner(inputval);
