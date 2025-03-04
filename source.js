@@ -2,7 +2,7 @@ function runner(input) {
     const getvalue = input.innerHTML;
     const getvaluelist = getvalue.split("");
     const lines = [];
-    var totalInnerHTML = "";
+    var totalInnerHTML = ``;
     var k = 1;
 
     for (var i = 0; i < getvaluelist.length; i++) {
@@ -57,7 +57,7 @@ function runner(input) {
         }
     }
 
-    function displaytext(keyword, text, additional) {
+    function displaytext(keyword, text, addition) {
         const d = text.split(" ");
         if (d[0] === keyword) {
             const keyworddetected = d[0].split("");
@@ -72,7 +72,7 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += newd1 + additional;
+            totalInnerHTML += newd1 + addition;
         }
     }
 
@@ -139,7 +139,7 @@ function runner(input) {
     function beginEnd(element, keyword, text) {
         if (text === "BEGIN "+keyword) {
             totalInnerHTML += "<"+element+" id='line"+k.toString()+`' >\n`;
-        }
+        } 
         if (text === "END "+keyword) {
             totalInnerHTML += "</"+element+`>\n`;
         }
@@ -152,8 +152,8 @@ function runner(input) {
     for (var h = 0; h < lines.length; h++) {
         changelinesh = lines[h];
         keyWordOneArg("echo", "p", changelinesh);
-        displaytext("lined_text", changelinesh, "<br />");
-        displaytext("print", changelinesh, "");
+        displaytext("print", changelinesh, "<br />");
+        displaytext("line", changelinesh, "");
         keyWordOneArg("title", "h1", changelinesh);
         keyWordOneArg("header1", "h2", changelinesh);
         keyWordOneArg("header2", "h3", changelinesh);
@@ -162,22 +162,25 @@ function runner(input) {
         keyWordOneArg("header5", "h6", changelinesh);
         keyWordOneArg("HEAD", "title", changelinesh);
         keyWordTwoArg("link", "a", changelinesh, "href");
-        keyWordTwoArg("webdriver", "iframe", changelinesh, "src");
+        keyWordTwoArg("web_driver", "iframe", changelinesh, "src");
         closedTag("img", "img", changelinesh, "src");
         noArg("line", "hr", changelinesh);
         noArg("break", "br", changelinesh);
         beginEnd("div", "container", changelinesh);
-        closedTag("inputtext", "input type='text'", changelinesh, "placeholder");
-        closedTag("inputpassword", "input type='password'", changelinesh, "placeholder");
+        closedTag("input_text", "input type='text'", changelinesh, "placeholder");
+        closedTag("input_password", "input type='password'", changelinesh, "placeholder");
         beginEnd("form", "form", changelinesh);
         beginEnd("code", "codeblock", changelinesh);
         keyWordTwoArg("write", "textarea", changelinesh, "placeholder");
         keyWordOneArg("codeblock", "code", changelinesh);
         beginEnd("h2", "header", changelinesh);
+        beginEnd("a", "link", changelinesh);
+        keyWordOneArg("button", "button", changelinesh);
         k++;
     }
-    requiredstuff = `
+    input.insertAdjacentHTML("beforeend", `
     <!DOCTYPE html>
+    <html>
     <head>
         <meta charset="utf-8" >
         <style id="styling"></style>
@@ -191,11 +194,10 @@ function runner(input) {
             h5 {font-size: 25pt;}
             h6 {font-size: 20pt;}
             iframe {width: 800px; height: 500px;}
-            code {padding: 10px; background: black; color: white; display: inline-block; width: 800px;}
+            code {padding: 10px; background: black; color: white; display: inline-block; width: 60%;}
             #zyrikl {display: none;}
-        </style>`;
-    input.insertAdjacentHTML("beforebegin", requiredstuff);
-    input.insertAdjacentHTML("afterend", totalInnerHTML+"</body>\n</html>");
+        </style>`);
+    input.insertAdjacentHTML("afterend", totalInnerHTML+"</body></html>");
 }
 const inputval = document.getElementById("zyrikl");
 runner(inputval);
