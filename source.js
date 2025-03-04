@@ -182,7 +182,7 @@ function runner(input) {
     <!DOCTYPE html>
     <html>
     <head>
-        <meta charset="utf-8" >
+        <meta charset="utf-8" />
         <style id="styling"></style>
     </head>
     <body>
