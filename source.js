@@ -53,7 +53,7 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+`>\n`;
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+`>`;
         }
     }
 
@@ -107,7 +107,7 @@ function runner(input) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+`>\n`;
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+`>`;
         }
     }
 
@@ -126,22 +126,22 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+`" />\n`;
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+`" />`;
         }
     }
 
     function noArg(keyword, element, text) {
         if (text === keyword) {
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' />\n`;
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' />`;
         }
     }
 
     function beginEnd(element, keyword, text) {
         if (text === "BEGIN "+keyword) {
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' >\n`;
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' >`;
         } 
         if (text === "END "+keyword) {
-            totalInnerHTML += "</"+element+`>\n`;
+            totalInnerHTML += "</"+element+`>`;
         }
     }
     
