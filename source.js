@@ -53,7 +53,7 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+`>`;
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+`>\n`;
         }
     }
 
@@ -107,7 +107,7 @@ function runner(input) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+`>`;
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+`>\n`;
         }
     }
 
@@ -126,13 +126,13 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+`" />`;
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+`" />\n`;
         }
     }
 
     function noArg(keyword, element, text) {
         if (text === keyword) {
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' />`;
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' />\n`;
         }
     }
 
@@ -141,9 +141,19 @@ function runner(input) {
             totalInnerHTML += "<"+element+" id='line"+k.toString()+`' >`;
         } 
         if (text === "END "+keyword) {
-            totalInnerHTML += "</"+element+`>`;
+            totalInnerHTML += "</"+element+`>\n`;
         }
     }
+
+    /* function beginEndExtra(element, keyword, text, attribute) {
+        mainword = text.split(" ");
+        if (text === "BEGIN "+keyword+" "+mainword[0]) {
+            totalInnerHTML += "<"+element+" "+attribute+"="+mainword[0]+" id='line"+k.toString()+`' >`;
+        } 
+        if (text === "END "+keyword) {
+            totalInnerHTML += "</"+element+`>`;
+        }
+    } */
     
     var lineskeyword = "Website made with Zyrikl";
 
@@ -169,13 +179,15 @@ function runner(input) {
         beginEnd("div", "container", changelinesh);
         closedTag("input_text", "input type='text'", changelinesh, "placeholder");
         closedTag("input_password", "input type='password'", changelinesh, "placeholder");
+        closedTag("submit_button", "input type='submit'", changelinesh, "value");
         beginEnd("form", "form", changelinesh);
-        beginEnd("code", "codeblock", changelinesh);
+        beginEnd("code", "code_block", changelinesh);
         keyWordTwoArg("write", "textarea", changelinesh, "placeholder");
-        keyWordOneArg("codeblock", "code", changelinesh);
+        keyWordOneArg("code_block", "code", changelinesh);
         beginEnd("h2", "header", changelinesh);
-        beginEnd("a", "link", changelinesh);
+        // beginEndExtra("a", "link", changelinesh, "href");
         keyWordOneArg("button", "button", changelinesh);
+        beginEnd("pre", "mono", changelinesh);
         k++;
     }
     input.insertAdjacentHTML("beforeend", `
@@ -195,9 +207,9 @@ function runner(input) {
             h6 {font-size: 20pt;}
             iframe {width: 800px; height: 500px;}
             code {padding: 10px; background: black; color: white; display: inline-block; width: 60%;}
-            #zyrikl {display: none;}
+            zyrikl {display: none;}
         </style>`);
     input.insertAdjacentHTML("afterend", totalInnerHTML+"</body></html>");
 }
-const inputval = document.getElementById("zyrikl");
+const inputval = document.querySelector("zyrikl");
 runner(inputval);
