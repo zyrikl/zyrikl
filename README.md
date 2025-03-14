@@ -12,7 +12,7 @@ It's easy! Just paste the following HTML code in:
 <zyrikl>
 // Insert Zyrikl here:
 </zyrikl>
-<script src="https://zyrikl.github.io/zyrikl/zyrikl.js"></script>
+<script src="https://raw.githubusercontent.com/zyrikl/zyrikl/refs/heads/main/source.js"></script>
 ```
 > ## Where do I learn Zyrikl?
 
