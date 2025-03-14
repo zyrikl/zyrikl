@@ -9,9 +9,9 @@ Zyrikl is a programming language designed to make HTML look hard. Yup, that's ri
 
 It's easy! Just paste the following HTML code in:
 ```
-<span id="zyrikl">
+<zyrikl>
 // Insert Zyrikl here:
-</span>
+</zyrikl>
 <script src="https://zyrikl.github.io/zyrikl/zyrikl.js"></script>
 ```
 > ## Where do I learn Zyrikl?
