@@ -53,7 +53,7 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+`>\n`;
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+"'>"+newd1+"</"+element+`>`;
         }
     }
 
@@ -107,7 +107,7 @@ function runner(input) {
             for (var x = savelink+2; x < newr.length; x++) {
                 newd2 = newd2 + newr[x];
             }
-            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+`>\n`;
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+' id="line'+k.toString()+'">'+newd2+"</"+element+`>`;
         }
     }
 
@@ -126,13 +126,13 @@ function runner(input) {
             for (var q = 0; q < newr.length; q++) {
                 newd1 = newd1 + newr[q];
             }
-            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+`" />\n`;
+            totalInnerHTML += "<"+element+" "+src+'="'+newd1+'"  id="line'+k.toString()+`" />`;
         }
     }
 
     function noArg(keyword, element, text) {
         if (text === keyword) {
-            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' />\n`;
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' />`;
         }
     }
 
@@ -141,19 +141,16 @@ function runner(input) {
             totalInnerHTML += "<"+element+" id='line"+k.toString()+`' >`;
         } 
         if (text === "END "+keyword) {
-            totalInnerHTML += "</"+element+`>\n`;
+            totalInnerHTML += "</"+element+`>`;
         }
     }
 
-    /* function beginEndExtra(element, keyword, text, attribute) {
-        mainword = text.split(" ");
-        if (text === "BEGIN "+keyword+" "+mainword[0]) {
-            totalInnerHTML += "<"+element+" "+attribute+"="+mainword[0]+" id='line"+k.toString()+`' >`;
-        } 
-        if (text === "END "+keyword) {
-            totalInnerHTML += "</"+element+`>`;
+    function importStyles(keyword, text) {
+        stellar = "<style>body {background: black;color: white;}p {font-size: 50pt;}</style>"
+        if (text === "IMPORT "+keyword) {
+            totalInnerHTML += stellar;
         }
-    } */
+    }
     
     var lineskeyword = "Website made with Zyrikl";
 
@@ -188,6 +185,7 @@ function runner(input) {
         // beginEndExtra("a", "link", changelinesh, "href");
         keyWordOneArg("button", "button", changelinesh);
         beginEnd("pre", "mono", changelinesh);
+        importStyles("stellar", changelinesh);
         k++;
     }
     input.insertAdjacentHTML("beforeend", `
