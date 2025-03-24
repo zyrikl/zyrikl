@@ -145,9 +145,9 @@ function runner(input) {
         }
     }
 
-    function importStyles(keyword, text) {
-        stellar = "<style>body {background: black;color: white;}p {font-size: 50pt;}</style>"
-        if (text === "IMPORT "+keyword) {
+    function importStyles(text) {
+        stellar = "<style>@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body {background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThMsAC4ZB3iGlRnyZgXG70vLObRDYs4njwMIuKBaNEOwH2KOY:https://www.mccormick.northwestern.edu/images/news/2023/07/what-does-a-twinkling-star-sound-like-take-a-listen-social.jpg&s');background-size:contain;color: white !important;font-family: Spectral;}a {color: red;}input{background:rgba(255, 255, 255, 0.2);color: white;}textarea{background:rgba(255, 255, 255, 0.2);color: white;}button{background:rgba(255, 255, 255, 0.2);color: white;}iframe{color:white;}code{background:rgba(255,255,255,0.2);}</style>"
+        if (text === 'IMPORT "stellar"') {
             totalInnerHTML += stellar;
         }
     }
@@ -185,7 +185,7 @@ function runner(input) {
         // beginEndExtra("a", "link", changelinesh, "href");
         keyWordOneArg("button", "button", changelinesh);
         beginEnd("pre", "mono", changelinesh);
-        importStyles("stellar", changelinesh);
+        importStyles(changelinesh);
         k++;
     }
     input.insertAdjacentHTML("beforeend", `
