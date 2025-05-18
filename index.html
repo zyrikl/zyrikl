@@ -1,17 +1,18 @@
 <zyrikl>
-IMPORT "stellar";
+    HEAD "Zyrikl Documentation";
+    IMPORT "docs";
 
-HEAD "Welcome to Zyrikl's homepage!";
+    title "Zyrikl Documentation";
+    line;
 
-title "Welcome to Zyrikl!";
-BEGIN header
-line "Learning Zyrikl? Go to ";
-link "./learn/" "this place to learn more";
-END header;
+    header2 "Builders";
+    echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. These methods are case-sensitive to identify their method. The method is a way to distinguish between two builders. All capitalized builders are hidden builders, but have visible methods. Lowercase builders actually show on the webpage. They have visible methods as well. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler.";
 
-echo "Zyrikl is an easy-to-use, lightweight programming language";
-BEGIN container;
-echo "Help! Does styling work?";
-END container;
+    header4 "echo";
+    echo "Displays a paragraph. Can be used with BEGIN "echo" and END "echo".";
+    header4 "bold";
+    echo "Bolds text. Does not end with a newline.";
+    header4 "italics";
+    echo "Italicizes text. Does not end with a newline.";
 </zyrikl>
 <script src="source.js"></script>
