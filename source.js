@@ -213,7 +213,12 @@ function runner(input) {
         beginEnd("p", "echo", changelinesh);
         keyWordTwoArg("write", "textarea", changelinesh, "placeholder");
         keyWordOneArg("code_block", "code", changelinesh);
-        beginEnd("h2", "header", changelinesh);
+        beginEnd("h1", "title", changelinesh);
+        beginEnd("h2", "header1", changelinesh);
+        beginEnd("h3", "header2", changelinesh);
+        beginEnd("h4", "header3", changelinesh);
+        beginEnd("h5", "header4", changelinesh);
+        beginEnd("h6", "header5", changelinesh);
         // beginEndExtra("a", "link", changelinesh, "href");
         keyWordOneArg("button", "button", changelinesh);
         beginEnd("pre", "mono", changelinesh);
