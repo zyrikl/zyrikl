@@ -148,11 +148,36 @@ function runner(input) {
     function importStyles(text) {
         stellar = "<style>@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body {background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThMsAC4ZB3iGlRnyZgXG70vLObRDYs4njwMIuKBaNEOwH2KOY:https://www.mccormick.northwestern.edu/images/news/2023/07/what-does-a-twinkling-star-sound-like-take-a-listen-social.jpg&s');background-size:contain;color: white !important;font-family: Spectral;}a {color: red;}input{background:rgba(255, 255, 255, 0.2);color: white;}textarea{background:rgba(255, 255, 255, 0.2);color: white;}button{background:rgba(255, 255, 255, 0.2);color: white;}iframe{color:white;}code{background:rgba(255,255,255,0.2);}</style>"
         retro = "<style>@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Pixelify Sans';background:rgba(20,75,20,1);color:rgba(100,255,100,1);}a{color:rgba(155,50,205,1);}</style>";
+        docs = "<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Noto Sans'!important;background:black;color:white;width:900px;padding:20px;}h1{margin:30px;}h2{margin:25px;}h3{margin:20px;}h4{margin:10px;}h5{margin:5px;}h6{margin:5px;}</style>";
         if (text === 'IMPORT "stellar"') {
             totalInnerHTML += stellar;
         }
         if (text === 'IMPORT "retro"') {
             totalInnerHTML += retro;
+        } 
+        if (text === 'IMPORT "docs"') {
+            totalInnerHTML += docs;
+        } else {
+            /* var spD = "";
+            var Do = text.split("");
+            for (var sp = 0; sp < 7; sp++) {
+                spD += Do[sp];
+                alert(spD);
+            }
+            if (spD === "IMPORT ") {
+                var soD = "";
+                for (var so = 8; so < (Do.length)-1; so++) {
+                    soD += Do[so];
+                }
+                totalInnerHTML += "<link rel='stylesheet' href='"+soD+"'/>;
+            } */
+        }
+    }
+
+    function getValues(text) {
+        var d = text.split(" ");
+        if (d[0] === "get_value") {
+            document.getElementById("script").innerHTML += "var "+d[1]+" = '"+document.getElementById(d[1]).innerHTML+"';";
         }
     }
     
@@ -163,6 +188,8 @@ function runner(input) {
     for (var h = 0; h < lines.length; h++) {
         changelinesh = lines[h];
         keyWordOneArg("echo", "p", changelinesh);
+        keyWordOneArg("bold", "b", changelinesh);
+        keyWordOneArg("italics", "i", changelinesh);
         displaytext("print", changelinesh, "<br />");
         displaytext("line", changelinesh, "");
         keyWordOneArg("title", "h1", changelinesh);
@@ -183,6 +210,7 @@ function runner(input) {
         closedTag("submit_button", "input type='submit'", changelinesh, "value");
         beginEnd("form", "form", changelinesh);
         beginEnd("code", "code_block", changelinesh);
+        beginEnd("p", "echo", changelinesh);
         keyWordTwoArg("write", "textarea", changelinesh, "placeholder");
         keyWordOneArg("code_block", "code", changelinesh);
         beginEnd("h2", "header", changelinesh);
@@ -210,7 +238,8 @@ function runner(input) {
             iframe {width: 800px; height: 500px;}
             code {padding: 10px; background: black; color: white; display: inline-block; width: 60%;}
             zyrikl {display: none;}
-        </style>`);
+        </style>
+        <script id="script"></script>`);
     input.insertAdjacentHTML("afterend", totalInnerHTML+"</body></html>");
 }
 const inputval = document.querySelector("zyrikl");
