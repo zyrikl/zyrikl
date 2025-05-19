@@ -6,7 +6,7 @@
     line;
 
     header2 "Builders";
-    echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. These methods are case-sensitive to identify their method. The method is a way to distinguish between two builders. All capitalized builders are hidden builders, but have visible methods. Lowercase builders actually show on the webpage. They have visible methods as well. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler.";
+    echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.";
 
     header4 "echo";
     echo "Displays a paragraph. Can be used with BEGIN "echo" and END "echo".";
@@ -41,7 +41,22 @@
     header4 "header5";
     echo "Displays heading font text. Has BEGIN/END attributes.";
 
+    header2 "Systematics";
+    echo "These change the way a builder works, or edit the physical page itself. They are always capitalized.";
     header4 "HEAD";
     echo "Changes tab name in browser.";
+    header4 "BEGIN";
+    echo "Starts an element. Can have the following arguments:"
+    BEGIN "unordered"
+        list_entry "echo";
+        list_entry "title";
+        list_entry "header1";
+        list_entry "header2";
+        list_entry "header3";
+        list_entry "header4";
+        list_entry "header5";
+        list_entry "unordered";
+        list_entry "ordered";
+    END "unordered";
 </zyrikl>
 <script src="source.js"></script>

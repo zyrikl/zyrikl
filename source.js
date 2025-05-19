@@ -198,6 +198,9 @@ function runner(input) {
         keyWordOneArg("header3", "h4", changelinesh);
         keyWordOneArg("header4", "h5", changelinesh);
         keyWordOneArg("header5", "h6", changelinesh);
+        keyWordOneArg("list_entry", "li", changelinesh);
+        beginEnd("ul", "unordered", changelinesh);
+        beginEnd("ol", "ordered", changelinesh)
         keyWordOneArg("HEAD", "title", changelinesh);
         keyWordTwoArg("link", "a", changelinesh, "href");
         keyWordTwoArg("web_driver", "iframe", changelinesh, "src");
