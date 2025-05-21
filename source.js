@@ -204,7 +204,7 @@ function runner(input) {
         keyWordOneArg("HEAD", "title", changelinesh);
         keyWordTwoArg("link", "a", changelinesh, "href");
         keyWordTwoArg("web_driver", "iframe", changelinesh, "src");
-        closedTag("img", "img", changelinesh, "src");
+        closedTag("image", "img", changelinesh, "src");
         noArg("line", "hr", changelinesh);
         noArg("break", "br", changelinesh);
         beginEnd("div", "container", changelinesh);
@@ -222,6 +222,7 @@ function runner(input) {
         beginEnd("h4", "header3", changelinesh);
         beginEnd("h5", "header4", changelinesh);
         beginEnd("h6", "header5", changelinesh);
+        beginEnd("button", "button", changelinesh);
         // beginEndExtra("a", "link", changelinesh, "href");
         keyWordOneArg("button", "button", changelinesh);
         beginEnd("pre", "mono", changelinesh);
