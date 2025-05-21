@@ -17,7 +17,7 @@ function runner(input) {
         if (getvaluelist[i]+getvaluelist[i+1]+getvaluelist[i+2]+getvaluelist[i+3] === "    ") {
             getvaluelist.splice(i, 4);
         }
-        if (getvaluelist[i]+getvaluelist[i+1]+getvaluelist[i+2]+getvaluelist[i+3]+getvaluelist[i+4]+getvaluelist[i+6] +getvaluelist[i+7]+getvaluelist[i+8]=== "        ") {
+        if (getvaluelist[i]+getvaluelist[i+1]+getvaluelist[i+2]+getvaluelist[i+3]+getvaluelist[i+4]+getvaluelist[i+6] +getvaluelist[i+7]=== "        ") {
             getvaluelist.splice(i, 8);
         }
     }
@@ -222,7 +222,6 @@ function runner(input) {
         beginEnd("h4", "header3", changelinesh);
         beginEnd("h5", "header4", changelinesh);
         beginEnd("h6", "header5", changelinesh);
-        beginEnd("button", "button", changelinesh);
         // beginEndExtra("a", "link", changelinesh, "href");
         keyWordOneArg("button", "button", changelinesh);
         beginEnd("pre", "mono", changelinesh);
