@@ -47,16 +47,29 @@
     echo "Changes tab name in browser.";
     header4 "BEGIN";
     echo "Starts an element. Can have the following arguments:"
-    BEGIN "unordered"
-        list_entry "echo";
-        list_entry "title";
-        list_entry "header1";
-        list_entry "header2";
-        list_entry "header3";
-        list_entry "header4";
-        list_entry "header5";
-        list_entry "unordered";
-        list_entry "ordered";
+    BEGIN "unordered";
+    list_entry "echo";
+    list_entry "title";
+    list_entry "header1";
+    list_entry "header2";
+    list_entry "header3";
+    list_entry "header4";
+    list_entry "header5";
+    list_entry "unordered";
+    list_entry "ordered";
+    END "unordered";
+    header4 "END";
+    echo "Ends an element. Can have the following arguments:"
+    BEGIN "unordered";
+    list_entry "echo";
+    list_entry "title";
+    list_entry "header1";
+    list_entry "header2";
+    list_entry "header3";
+    list_entry "header4";
+    list_entry "header5";
+    list_entry "unordered";
+    list_entry "ordered";
     END "unordered";
 </zyrikl>
-<script src="source.js"></script>
+<script src="zyrikl.js"></script>
