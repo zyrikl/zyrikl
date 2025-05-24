@@ -1,3 +1,4 @@
+// Copyright (c) 2025 Zyrikl, Inc. and Charles Wang. Do not copy without permission.
 function runner(input) {
     const getvalue = input.innerHTML;
     const getvaluelist = getvalue.split("");
