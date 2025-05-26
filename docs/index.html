@@ -1,108 +1,108 @@
 <zyrikl>
-HEAD "Zyrikl Documentation";
-IMPORT "docs";
+    HEAD "Zyrikl Documentation";
+    IMPORT "docs";
 
-title "Zyrikl Documentation";
-link "https://zyrikl.github.io/zyrikl/" "Back";
-line;
+    title "Zyrikl Documentation";
+    link "https://zyrikl.github.io" "Back";
+    line;
 
-header2 "Builders";
-echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.";
+    header2 "Builders";
+    echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.";
 
-header4 "echo";
-echo "Displays a paragraph. Can be used with BEGIN "echo" and END "echo".";
+    header4 "echo";
+    echo "Displays a paragraph. Can be used with BEGIN "echo" and END "echo".";
+    
+    header4 "bold";
+    echo "Bolds text. Does not end with a newline.";
+    
+    header4 "italics";
+    echo "Italicizes text. Does not end with a newline.";
 
-header4 "bold";
-echo "Bolds text. Does not end with a newline.";
+    header4 "print";
+    echo "Displays unformatted text with a newline.";
 
-header4 "italics";
-echo "Italicizes text. Does not end with a newline.";
+    header4 "line";
+    echo "Displays unformatted text without a newline.";
 
-header4 "print";
-echo "Displays unformatted text with a newline.";
+    header4 "title";
+    echo "Displays large font text. Has BEGIN/END attributes.";
 
-header4 "line";
-echo "Displays unformatted text without a newline.";
+    header4 "header1";
+    echo "Displays large font text. Has BEGIN/END attributes.";
+    
+    header4 "header2";
+    echo "Displays medium font text. Has BEGIN/END attributes.";
 
-header4 "title";
-echo "Displays large font text. Has BEGIN/END attributes.";
+    header4 "header3";
+    echo "Displays medium font text. Has BEGIN/END attributes.";
 
-header4 "header1";
-echo "Displays large font text. Has BEGIN/END attributes.";
+    header4 "header4";
+    echo "Displays heading font text. Has BEGIN/END attributes.";
 
-header4 "header2";
-echo "Displays medium font text. Has BEGIN/END attributes.";
+    header4 "header5";
+    echo "Displays heading font text. Has BEGIN/END attributes.";
 
-header4 "header3";
-echo "Displays medium font text. Has BEGIN/END attributes.";
+    header4 "list_entry";
+    echo "Can be used with unordered and ordered to create a list entry.";
 
-header4 "header4";
-echo "Displays heading font text. Has BEGIN/END attributes.";
+    header4 "link";
+    echo "Takes two arguments. Example syntax:";
+    code_block "link "https://google.com" "This is Google";"
 
-header4 "header5";
-echo "Displays heading font text. Has BEGIN/END attributes.";
+    header4 "image";
+    echo "Displays an image.";
 
-header4 "list_entry";
-echo "Can be used with unordered and ordered to create a list entry.";
+    header4 "webdriver";
+    echo "Displays another website";
 
-header4 "link";
-echo "Takes two arguments. Example syntax:";
-code_block "link "https://google.com" "This is Google";"
+    header4 "line";
+    echo "Displays a line across the screen.";
 
-header4 "image";
-echo "Displays an image.";
+    header4 "break";
+    echo "Displays a space in between lines.";
 
-header4 "webdriver";
-echo "Displays another website";
+    header4 "button";
+    echo "Shows a button.";
 
-header4 "line";
-echo "Displays a line across the screen.";
+    header4 "input_text";
+    echo "Creates an input that takes text.";
 
-header4 "break";
-echo "Displays a space in between lines.";
+    header4 "input_password";
+    echo "Creates an input that takes a password.";
 
-header4 "button";
-echo "Shows a button.";
+    header4 "submit_button";
+    echo "Shows a button that says "Submit".";
 
-header4 "input_text";
-echo "Creates an input that takes text.";
+    header4 "write";
+    echo "Creates a larger version of input_text.";
 
-header4 "input_password";
-echo "Creates an input that takes a password.";
+    header4 "mono";
+    echo "Creates unformatted text.";
 
-header4 "submit_button";
-echo "Shows a button that says "Submit".";
+    header2 "Systematics";
+    echo "Systematics change the way a builder works, or edit the physical page itself. They are always capitalized. They can be used to make builders more useful, such as wrapping a section of content in a page. Systematics are also used to style and add interactive function.";
+    header4 "HEAD";
+    echo "Changes tab name in browser.";
 
-header4 "write";
-echo "Creates a larger version of input_text.";
+    header4 "BEGIN & END";
+    echo "Starts and ends an element. Can have the following arguments:"
+    BEGIN "unordered";
+    list_entry "echo";
+    list_entry "title";
+    list_entry "header1";
+    list_entry "header2";
+    list_entry "header3";
+    list_entry "header4";
+    list_entry "header5";
+    list_entry "unordered";
+    list_entry "ordered";
+    list_entry "container";
+    list_entry "code_block";
+    list_entry "button";
+    END "unordered";
+    echo "Find the references above.";
 
-header4 "mono";
-echo "Creates unformatted text.";
-
-header2 "Systematics";
-echo "Systematics change the way a builder works, or edit the physical page itself. They are always capitalized. They can be used to make builders more useful, such as wrapping a section of content in a page. Systematics are also used to style and add interactive function.";
-header4 "HEAD";
-echo "Changes tab name in browser.";
-
-header4 "BEGIN & END";
-echo "Starts and ends an element. Can have the following arguments:"
-BEGIN "unordered";
-list_entry "echo";
-list_entry "title";
-list_entry "header1";
-list_entry "header2";
-list_entry "header3";
-list_entry "header4";
-list_entry "header5";
-list_entry "unordered";
-list_entry "ordered";
-list_entry "container";
-list_entry "code_block";
-list_entry "button";
-END "unordered";
-echo "Find the references above.";
-
-header4 "IMPORT";
-echo "Currently takes 3 arguments: "stellar", "retro", and "docs".";
+    header4 "IMPORT";
+    echo "Currently takes 3 arguments: "stellar", "retro", and "docs".";
 </zyrikl>
 <script src="source.js"></script>
