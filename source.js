@@ -1,4 +1,6 @@
 // Copyright (c) 2025 Zyrikl, Inc. and Charles Wang. Do not copy without permission.
+// The Zyrikl Project is made possible by you, the user. Consider helping out with
+// the development of Zyrikl on Github.
 function runner(input) {
     const getvalue = input.innerHTML;
     const getvaluelist = getvalue.split("");
@@ -146,6 +148,18 @@ function runner(input) {
         }
     }
 
+    function beginEndAdvanced(element, keyword, text, attribute) {
+        beginTest = text.split(" ");
+        if (beginTest[0]+" "+beginTest[1] === 'BEGIN '+keyword) {
+            totalInnerHTML += "<"+element+" id='line"+k.toString()+`' `+attribute+"="+beginTest[2]+`>`;
+        }
+        if (text === "END "+keyword) {
+            totalInnerHTML += "</"+element+`>`;
+        }
+    }
+
+    function variable(id) {}
+
     function importStyles(text) {
         stellar = "<style>@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body {background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThMsAC4ZB3iGlRnyZgXG70vLObRDYs4njwMIuKBaNEOwH2KOY:https://www.mccormick.northwestern.edu/images/news/2023/07/what-does-a-twinkling-star-sound-like-take-a-listen-social.jpg&s');background-size:contain;color: white !important;font-family: Spectral;}a {color: red;}input{background:rgba(255, 255, 255, 0.2);color: white;}textarea{background:rgba(255, 255, 255, 0.2);color: white;}button{background:rgba(255, 255, 255, 0.2);color: white;}iframe{color:white;}code{background:rgba(255,255,255,0.2);}</style>"
         retro = "<style>@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Pixelify Sans';background:rgba(20,75,20,1);color:rgba(100,255,100,1);}a{color:rgba(155,50,205,1);}</style>";
@@ -223,7 +237,7 @@ function runner(input) {
         beginEnd("h4", "header3", changelinesh);
         beginEnd("h5", "header4", changelinesh);
         beginEnd("h6", "header5", changelinesh);
-        // beginEndExtra("a", "link", changelinesh, "href");
+        beginEndAdvanced("a", "link", changelinesh, "href");
         keyWordOneArg("button", "button", changelinesh);
         beginEnd("pre", "mono", changelinesh);
         importStyles(changelinesh);
