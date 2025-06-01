@@ -1,0 +1,424 @@
+<html><head></head><body><zyrikl>
+    HEAD "Zyrikl Documentation";
+    IMPORT "docs";
+
+    title "Zyrikl Tutorial";
+    rule;
+    echo "Zyrikl is a project created by Charles Wang. It makes coding a website much, much easier.";
+    header4 "Starting your first app";
+    echo "Zyrikl can be used anywhere. In your HTML file, type in: ";
+    BEGIN code_block
+    print "&lt;zyrikl&gt;";
+    print "&nbsp;&nbsp;&nbsp;&nbsp;echo "Hello, World";";
+    print "&lt;/zyrikl&gt;";
+    print "&lt;script src="https://cdn.jsdelivr.net/gh/zyrikl/zyrikl/source.js"&gt;&lt;/script&gt;";
+    END code_block;
+    echo "View the document. It should show a webpage with the words "Hello, World" on it. Now, onto the actual code!"
+
+    title "Zyrikl Documentation";
+    rule;
+
+    header2 "Builders";
+    echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.";
+
+    header4 "echo";
+    echo "Displays a paragraph. Can be used with BEGIN "echo" and END "echo".";
+    
+    header4 "bold";
+    echo "Bolds text. Does not end with a newline.";
+    
+    header4 "italics";
+    echo "Italicizes text. Does not end with a newline.";
+
+    header4 "print";
+    echo "Displays unformatted text with a newline.";
+
+    header4 "line";
+    echo "Displays unformatted text without a newline.";
+
+    header4 "title";
+    echo "Displays large font text. Has BEGIN/END attributes.";
+
+    header4 "header1";
+    echo "Displays large font text. Has BEGIN/END attributes.";
+    
+    header4 "header2";
+    echo "Displays medium font text. Has BEGIN/END attributes.";
+
+    header4 "header3";
+    echo "Displays medium font text. Has BEGIN/END attributes.";
+
+    header4 "header4";
+    echo "Displays heading font text. Has BEGIN/END attributes.";
+
+    header4 "header5";
+    echo "Displays heading font text. Has BEGIN/END attributes.";
+
+    header4 "list_entry";
+    echo "Can be used with unordered and ordered to create a list entry.";
+
+    header4 "link";
+    echo "Takes two arguments. Example syntax:";
+    code_block "link "https://google.com" "This is Google";"
+
+    header4 "image";
+    echo "Displays an image.";
+
+    header4 "webdriver";
+    echo "Displays another website";
+
+    header4 "line";
+    echo "Displays a line across the screen.";
+
+    header4 "break";
+    echo "Displays a space in between lines.";
+
+    header4 "button";
+    echo "Shows a button.";
+
+    header4 "input_text";
+    echo "Creates an input that takes text.";
+
+    header4 "input_password";
+    echo "Creates an input that takes a password.";
+
+    header4 "submit_button";
+    echo "Shows a button that says "Submit".";
+
+    header4 "write";
+    echo "Creates a larger version of input_text.";
+
+    header4 "mono";
+    echo "Creates unformatted text.";
+
+    header2 "Systematics";
+    echo "Systematics change the way a builder works, or edit the physical page itself. They are always capitalized. They can be used to make builders more useful, such as wrapping a section of content in a page. Systematics are also used to style and add interactive function.";
+    header4 "HEAD";
+    echo "Changes tab name in browser.";
+
+    header4 "BEGIN &amp; END";
+    echo "Starts and ends an element. Can have the following arguments:"
+    BEGIN "unordered";
+    list_entry "echo";
+    list_entry "title";
+    list_entry "header1";
+    list_entry "header2";
+    list_entry "header3";
+    list_entry "header4";
+    list_entry "header5";
+    list_entry "unordered";
+    list_entry "ordered";
+    list_entry "container";
+    list_entry "code_block";
+    list_entry "button";
+    list_entry "link (requires link after BEGIN attribute, but END attribute will not take it.)";
+    END "unordered";
+    echo "Find the references above.";
+
+    header4 "IMPORT";
+    echo "Currently takes 3 arguments: "stellar", "retro", and "docs".";
+
+    
+    
+    
+        <meta charset="utf-8">
+        <style id="styling"></style>
+    
+    
+        <style>
+            h1 {font-size: 50pt;}
+            h2 {font-size: 40pt;}
+            h3 {font-size: 35pt;}
+            h4 {font-size: 30pt;}
+            h5 {font-size: 25pt;}
+            h6 {font-size: 20pt;}
+            iframe {width: 800px; height: 500px;}
+            code {padding: 10px; background: black; color: white; display: inline-block; width: 60%;}
+            zyrikl {display: none;}
+        </style>
+        <script id="script"></script></zyrikl><title id="line2">Zyrikl Documentation</title><style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Noto Sans'!important;background:black;color:white;width:900px;padding:20px;}h1{margin:30px;}h2{margin:25px;}h3{margin:20px;}h4{margin:10px;}h5{margin:5px;}h6{margin:5px;}a{color:red;}code{width:90% !important;}</style><h1 id="line5">Zyrikl Tutorial</h1><hr id="line6"><p id="line7">Zyrikl is a project created by Charles Wang. It makes coding a website much, much easier.</p><h5 id="line8">Starting your first app</h5><p id="line9">Zyrikl can be used anywhere. In your HTML file, type in: </p><code id="line10">&lt;zyrikl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo "Hello, World";<br>&lt;/zyrikl&gt;<br>&lt;script src="https://cdn.jsdelivr.net/gh/zyrikl/zyrikl/source.js"&gt;&lt;/script&gt;<br></code><p id="line16">View the document. It should show a webpage with the words "Hello, World" on it. Now, onto the actual code!</p><h1 id="line18">Zyrikl Documentation</h1><hr id="line19"><h3 id="line21">Builders</h3><p id="line22">Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.</p><h5 id="line24">echo</h5><p id="line25">Displays a paragraph. Can be used with BEGIN "echo" and END "echo".</p><h5 id="line27">bold</h5><p id="line28">Bolds text. Does not end with a newline.</p><h5 id="line30">italics</h5><p id="line31">Italicizes text. Does not end with a newline.</p><h5 id="line33">print</h5><p id="line34">Displays unformatted text with a newline.</p><h5 id="line36">line</h5><p id="line37">Displays unformatted text without a newline.</p><h5 id="line39">title</h5><p id="line40">Displays large font text. Has BEGIN/END attributes.</p><h5 id="line42">header1</h5><p id="line43">Displays large font text. Has BEGIN/END attributes.</p><h5 id="line45">header2</h5><p id="line46">Displays medium font text. Has BEGIN/END attributes.</p><h5 id="line48">header3</h5><p id="line49">Displays medium font text. Has BEGIN/END attributes.</p><h5 id="line51">header4</h5><p id="line52">Displays heading font text. Has BEGIN/END attributes.</p><h5 id="line54">header5</h5><p id="line55">Displays heading font text. Has BEGIN/END attributes.</p><h5 id="line57">list_entry</h5><p id="line58">Can be used with unordered and ordered to create a list entry.</p><h5 id="line60">link</h5><p id="line61">Takes two arguments. Example syntax:</p><code id="line62">link "https://google.com" "This is Google";</code><h5 id="line64">image</h5><p id="line65">Displays an image.</p><h5 id="line67">webdriver</h5><p id="line68">Displays another website</p><h5 id="line70">line</h5><p id="line71">Displays a line across the screen.</p><h5 id="line73">break</h5><p id="line74">Displays a space in between lines.</p><h5 id="line76">button</h5><p id="line77">Shows a button.</p><h5 id="line79">input_text</h5><p id="line80">Creates an input that takes text.</p><h5 id="line82">input_password</h5><p id="line83">Creates an input that takes a password.</p><h5 id="line85">submit_button</h5><p id="line86">Shows a button that says "Submit".</p><h5 id="line88">write</h5><p id="line89">Creates a larger version of input_text.</p><h5 id="line91">mono</h5><p id="line92">Creates unformatted text.</p><h3 id="line94">Systematics</h3><p id="line95">Systematics change the way a builder works, or edit the physical page itself. They are always capitalized. They can be used to make builders more useful, such as wrapping a section of content in a page. Systematics are also used to style and add interactive function.</p><h5 id="line96">HEAD</h5><p id="line97">Changes tab name in browser.</p><h5 id="line99">BEGIN &amp; END</h5><p id="line100">Starts and ends an element. Can have the following arguments:</p><li id="line102">echo</li><li id="line103">title</li><li id="line104">header1</li><li id="line105">header2</li><li id="line106">header3</li><li id="line107">header4</li><li id="line108">header5</li><li id="line109">unordered</li><li id="line110">ordered</li><li id="line111">container</li><li id="line112">code_block</li><li id="line113">button</li><li id="line114">link (requires link after BEGIN attribute, but END attribute will not take it.)</li><p id="line116">Find the references above.</p><h5 id="line118">IMPORT</h5><p id="line119">Currently takes 3 arguments: "stellar", "retro", and "docs".</p>
+<script src="source.js"></script>
+</body></html>
+<head></head>
+<body><zyrikl>
+    HEAD "Zyrikl Documentation";
+    IMPORT "docs";
+
+    title "Zyrikl Tutorial";
+    rule;
+    echo "Zyrikl is a project created by Charles Wang. It makes coding a website much, much easier.";
+    header4 "Starting your first app";
+    echo "Zyrikl can be used anywhere. In your HTML file, type in: ";
+    BEGIN code_block
+    print "&lt;zyrikl&gt;";
+    print "&nbsp;&nbsp;&nbsp;&nbsp;echo "Hello, World";";
+    print "&lt;/zyrikl&gt;";
+    print "&lt;script src="https://cdn.jsdelivr.net/gh/zyrikl/zyrikl/source.js"&gt;&lt;/script&gt;";
+    END code_block;
+    echo "View the document. It should show a webpage with the words "Hello, World" on it. Now, onto the actual code!"
+
+    title "Zyrikl Documentation";
+    rule;
+
+    header2 "Builders";
+    echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.";
+
+    header4 "echo";
+    echo "Displays a paragraph. Can be used with BEGIN "echo" and END "echo".";
+    
+    header4 "bold";
+    echo "Bolds text. Does not end with a newline.";
+    
+    header4 "italics";
+    echo "Italicizes text. Does not end with a newline.";
+
+    header4 "print";
+    echo "Displays unformatted text with a newline.";
+
+    header4 "line";
+    echo "Displays unformatted text without a newline.";
+
+    header4 "title";
+    echo "Displays large font text. Has BEGIN/END attributes.";
+
+    header4 "header1";
+    echo "Displays large font text. Has BEGIN/END attributes.";
+    
+    header4 "header2";
+    echo "Displays medium font text. Has BEGIN/END attributes.";
+
+    header4 "header3";
+    echo "Displays medium font text. Has BEGIN/END attributes.";
+
+    header4 "header4";
+    echo "Displays heading font text. Has BEGIN/END attributes.";
+
+    header4 "header5";
+    echo "Displays heading font text. Has BEGIN/END attributes.";
+
+    header4 "list_entry";
+    echo "Can be used with unordered and ordered to create a list entry.";
+
+    header4 "link";
+    echo "Takes two arguments. Example syntax:";
+    code_block "link "https://google.com" "This is Google";"
+
+    header4 "image";
+    echo "Displays an image.";
+
+    header4 "webdriver";
+    echo "Displays another website";
+
+    header4 "line";
+    echo "Displays a line across the screen.";
+
+    header4 "break";
+    echo "Displays a space in between lines.";
+
+    header4 "button";
+    echo "Shows a button.";
+
+    header4 "input_text";
+    echo "Creates an input that takes text.";
+
+    header4 "input_password";
+    echo "Creates an input that takes a password.";
+
+    header4 "submit_button";
+    echo "Shows a button that says "Submit".";
+
+    header4 "write";
+    echo "Creates a larger version of input_text.";
+
+    header4 "mono";
+    echo "Creates unformatted text.";
+
+    header2 "Systematics";
+    echo "Systematics change the way a builder works, or edit the physical page itself. They are always capitalized. They can be used to make builders more useful, such as wrapping a section of content in a page. Systematics are also used to style and add interactive function.";
+    header4 "HEAD";
+    echo "Changes tab name in browser.";
+
+    header4 "BEGIN &amp; END";
+    echo "Starts and ends an element. Can have the following arguments:"
+    BEGIN "unordered";
+    list_entry "echo";
+    list_entry "title";
+    list_entry "header1";
+    list_entry "header2";
+    list_entry "header3";
+    list_entry "header4";
+    list_entry "header5";
+    list_entry "unordered";
+    list_entry "ordered";
+    list_entry "container";
+    list_entry "code_block";
+    list_entry "button";
+    list_entry "link (requires link after BEGIN attribute, but END attribute will not take it.)";
+    END "unordered";
+    echo "Find the references above.";
+
+    header4 "IMPORT";
+    echo "Currently takes 3 arguments: "stellar", "retro", and "docs".";
+
+    
+    
+    
+        <meta charset="utf-8">
+        <style id="styling"></style>
+    
+    
+        <style>
+            h1 {font-size: 50pt;}
+            h2 {font-size: 40pt;}
+            h3 {font-size: 35pt;}
+            h4 {font-size: 30pt;}
+            h5 {font-size: 25pt;}
+            h6 {font-size: 20pt;}
+            iframe {width: 800px; height: 500px;}
+            code {padding: 10px; background: black; color: white; display: inline-block; width: 60%;}
+            zyrikl {display: none;}
+        </style>
+        <script id="script"></script></zyrikl><title id="line2">Zyrikl Documentation</title><style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Noto Sans'!important;background:black;color:white;width:900px;padding:20px;}h1{margin:30px;}h2{margin:25px;}h3{margin:20px;}h4{margin:10px;}h5{margin:5px;}h6{margin:5px;}a{color:red;}code{width:90% !important;}</style><h1 id="line5">Zyrikl Tutorial</h1><hr id="line6"><p id="line7">Zyrikl is a project created by Charles Wang. It makes coding a website much, much easier.</p><h5 id="line8">Starting your first app</h5><p id="line9">Zyrikl can be used anywhere. In your HTML file, type in: </p><code id="line10">&lt;zyrikl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo "Hello, World";<br>&lt;/zyrikl&gt;<br>&lt;script src="https://cdn.jsdelivr.net/gh/zyrikl/zyrikl/source.js"&gt;&lt;/script&gt;<br></code><p id="line16">View the document. It should show a webpage with the words "Hello, World" on it. Now, onto the actual code!</p><h1 id="line18">Zyrikl Documentation</h1><hr id="line19"><h3 id="line21">Builders</h3><p id="line22">Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.</p><h5 id="line24">echo</h5><p id="line25">Displays a paragraph. Can be used with BEGIN "echo" and END "echo".</p><h5 id="line27">bold</h5><p id="line28">Bolds text. Does not end with a newline.</p><h5 id="line30">italics</h5><p id="line31">Italicizes text. Does not end with a newline.</p><h5 id="line33">print</h5><p id="line34">Displays unformatted text with a newline.</p><h5 id="line36">line</h5><p id="line37">Displays unformatted text without a newline.</p><h5 id="line39">title</h5><p id="line40">Displays large font text. Has BEGIN/END attributes.</p><h5 id="line42">header1</h5><p id="line43">Displays large font text. Has BEGIN/END attributes.</p><h5 id="line45">header2</h5><p id="line46">Displays medium font text. Has BEGIN/END attributes.</p><h5 id="line48">header3</h5><p id="line49">Displays medium font text. Has BEGIN/END attributes.</p><h5 id="line51">header4</h5><p id="line52">Displays heading font text. Has BEGIN/END attributes.</p><h5 id="line54">header5</h5><p id="line55">Displays heading font text. Has BEGIN/END attributes.</p><h5 id="line57">list_entry</h5><p id="line58">Can be used with unordered and ordered to create a list entry.</p><h5 id="line60">link</h5><p id="line61">Takes two arguments. Example syntax:</p><code id="line62">link "https://google.com" "This is Google";</code><h5 id="line64">image</h5><p id="line65">Displays an image.</p><h5 id="line67">webdriver</h5><p id="line68">Displays another website</p><h5 id="line70">line</h5><p id="line71">Displays a line across the screen.</p><h5 id="line73">break</h5><p id="line74">Displays a space in between lines.</p><h5 id="line76">button</h5><p id="line77">Shows a button.</p><h5 id="line79">input_text</h5><p id="line80">Creates an input that takes text.</p><h5 id="line82">input_password</h5><p id="line83">Creates an input that takes a password.</p><h5 id="line85">submit_button</h5><p id="line86">Shows a button that says "Submit".</p><h5 id="line88">write</h5><p id="line89">Creates a larger version of input_text.</p><h5 id="line91">mono</h5><p id="line92">Creates unformatted text.</p><h3 id="line94">Systematics</h3><p id="line95">Systematics change the way a builder works, or edit the physical page itself. They are always capitalized. They can be used to make builders more useful, such as wrapping a section of content in a page. Systematics are also used to style and add interactive function.</p><h5 id="line96">HEAD</h5><p id="line97">Changes tab name in browser.</p><h5 id="line99">BEGIN &amp; END</h5><p id="line100">Starts and ends an element. Can have the following arguments:</p><li id="line102">echo</li><li id="line103">title</li><li id="line104">header1</li><li id="line105">header2</li><li id="line106">header3</li><li id="line107">header4</li><li id="line108">header5</li><li id="line109">unordered</li><li id="line110">ordered</li><li id="line111">container</li><li id="line112">code_block</li><li id="line113">button</li><li id="line114">link (requires link after BEGIN attribute, but END attribute will not take it.)</li><p id="line116">Find the references above.</p><h5 id="line118">IMPORT</h5><p id="line119">Currently takes 3 arguments: "stellar", "retro", and "docs".</p>
+<script src="source.js"></script>
+</body>
+<html><head></head><body><zyrikl>
+    HEAD "Zyrikl Documentation";
+    IMPORT "docs";
+
+    title "Zyrikl Tutorial";
+    rule;
+    echo "Zyrikl is a project created by Charles Wang. It makes coding a website much, much easier.";
+    header4 "Starting your first app";
+    echo "Zyrikl can be used anywhere. In your HTML file, type in: ";
+    BEGIN code_block
+    print "&lt;zyrikl&gt;";
+    print "&nbsp;&nbsp;&nbsp;&nbsp;echo "Hello, World";";
+    print "&lt;/zyrikl&gt;";
+    print "&lt;script src="https://cdn.jsdelivr.net/gh/zyrikl/zyrikl/source.js"&gt;&lt;/script&gt;";
+    END code_block;
+    echo "View the document. It should show a webpage with the words "Hello, World" on it. Now, onto the actual code!"
+
+    title "Zyrikl Documentation";
+    rule;
+
+    header2 "Builders";
+    echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.";
+
+    header4 "echo";
+    echo "Displays a paragraph. Can be used with BEGIN "echo" and END "echo".";
+    
+    header4 "bold";
+    echo "Bolds text. Does not end with a newline.";
+    
+    header4 "italics";
+    echo "Italicizes text. Does not end with a newline.";
+
+    header4 "print";
+    echo "Displays unformatted text with a newline.";
+
+    header4 "line";
+    echo "Displays unformatted text without a newline.";
+
+    header4 "title";
+    echo "Displays large font text. Has BEGIN/END attributes.";
+
+    header4 "header1";
+    echo "Displays large font text. Has BEGIN/END attributes.";
+    
+    header4 "header2";
+    echo "Displays medium font text. Has BEGIN/END attributes.";
+
+    header4 "header3";
+    echo "Displays medium font text. Has BEGIN/END attributes.";
+
+    header4 "header4";
+    echo "Displays heading font text. Has BEGIN/END attributes.";
+
+    header4 "header5";
+    echo "Displays heading font text. Has BEGIN/END attributes.";
+
+    header4 "list_entry";
+    echo "Can be used with unordered and ordered to create a list entry.";
+
+    header4 "link";
+    echo "Takes two arguments. Example syntax:";
+    code_block "link "https://google.com" "This is Google";"
+
+    header4 "image";
+    echo "Displays an image.";
+
+    header4 "webdriver";
+    echo "Displays another website";
+
+    header4 "line";
+    echo "Displays a line across the screen.";
+
+    header4 "break";
+    echo "Displays a space in between lines.";
+
+    header4 "button";
+    echo "Shows a button.";
+
+    header4 "input_text";
+    echo "Creates an input that takes text.";
+
+    header4 "input_password";
+    echo "Creates an input that takes a password.";
+
+    header4 "submit_button";
+    echo "Shows a button that says "Submit".";
+
+    header4 "write";
+    echo "Creates a larger version of input_text.";
+
+    header4 "mono";
+    echo "Creates unformatted text.";
+
+    header2 "Systematics";
+    echo "Systematics change the way a builder works, or edit the physical page itself. They are always capitalized. They can be used to make builders more useful, such as wrapping a section of content in a page. Systematics are also used to style and add interactive function.";
+    header4 "HEAD";
+    echo "Changes tab name in browser.";
+
+    header4 "BEGIN &amp; END";
+    echo "Starts and ends an element. Can have the following arguments:"
+    BEGIN "unordered";
+    list_entry "echo";
+    list_entry "title";
+    list_entry "header1";
+    list_entry "header2";
+    list_entry "header3";
+    list_entry "header4";
+    list_entry "header5";
+    list_entry "unordered";
+    list_entry "ordered";
+    list_entry "container";
+    list_entry "code_block";
+    list_entry "button";
+    list_entry "link (requires link after BEGIN attribute, but END attribute will not take it.)";
+    END "unordered";
+    echo "Find the references above.";
+
+    header4 "IMPORT";
+    echo "Currently takes 3 arguments: "stellar", "retro", and "docs".";
+
+    
+    
+    
+        <meta charset="utf-8">
+        <style id="styling"></style>
+    
+    
+        <style>
+            h1 {font-size: 50pt;}
+            h2 {font-size: 40pt;}
+            h3 {font-size: 35pt;}
+            h4 {font-size: 30pt;}
+            h5 {font-size: 25pt;}
+            h6 {font-size: 20pt;}
+            iframe {width: 800px; height: 500px;}
+            code {padding: 10px; background: black; color: white; display: inline-block; width: 60%;}
+            zyrikl {display: none;}
+        </style>
+        <script id="script"></script></zyrikl><title id="line2">Zyrikl Documentation</title><style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Noto Sans'!important;background:black;color:white;width:900px;padding:20px;}h1{margin:30px;}h2{margin:25px;}h3{margin:20px;}h4{margin:10px;}h5{margin:5px;}h6{margin:5px;}a{color:red;}code{width:90% !important;}</style><h1 id="line5">Zyrikl Tutorial</h1><hr id="line6"><p id="line7">Zyrikl is a project created by Charles Wang. It makes coding a website much, much easier.</p><h5 id="line8">Starting your first app</h5><p id="line9">Zyrikl can be used anywhere. In your HTML file, type in: </p><code id="line10">&lt;zyrikl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo "Hello, World";<br>&lt;/zyrikl&gt;<br>&lt;script src="https://cdn.jsdelivr.net/gh/zyrikl/zyrikl/source.js"&gt;&lt;/script&gt;<br></code><p id="line16">View the document. It should show a webpage with the words "Hello, World" on it. Now, onto the actual code!</p><h1 id="line18">Zyrikl Documentation</h1><hr id="line19"><h3 id="line21">Builders</h3><p id="line22">Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.</p><h5 id="line24">echo</h5><p id="line25">Displays a paragraph. Can be used with BEGIN "echo" and END "echo".</p><h5 id="line27">bold</h5><p id="line28">Bolds text. Does not end with a newline.</p><h5 id="line30">italics</h5><p id="line31">Italicizes text. Does not end with a newline.</p><h5 id="line33">print</h5><p id="line34">Displays unformatted text with a newline.</p><h5 id="line36">line</h5><p id="line37">Displays unformatted text without a newline.</p><h5 id="line39">title</h5><p id="line40">Displays large font text. Has BEGIN/END attributes.</p><h5 id="line42">header1</h5><p id="line43">Displays large font text. Has BEGIN/END attributes.</p><h5 id="line45">header2</h5><p id="line46">Displays medium font text. Has BEGIN/END attributes.</p><h5 id="line48">header3</h5><p id="line49">Displays medium font text. Has BEGIN/END attributes.</p><h5 id="line51">header4</h5><p id="line52">Displays heading font text. Has BEGIN/END attributes.</p><h5 id="line54">header5</h5><p id="line55">Displays heading font text. Has BEGIN/END attributes.</p><h5 id="line57">list_entry</h5><p id="line58">Can be used with unordered and ordered to create a list entry.</p><h5 id="line60">link</h5><p id="line61">Takes two arguments. Example syntax:</p><code id="line62">link "https://google.com" "This is Google";</code><h5 id="line64">image</h5><p id="line65">Displays an image.</p><h5 id="line67">webdriver</h5><p id="line68">Displays another website</p><h5 id="line70">line</h5><p id="line71">Displays a line across the screen.</p><h5 id="line73">break</h5><p id="line74">Displays a space in between lines.</p><h5 id="line76">button</h5><p id="line77">Shows a button.</p><h5 id="line79">input_text</h5><p id="line80">Creates an input that takes text.</p><h5 id="line82">input_password</h5><p id="line83">Creates an input that takes a password.</p><h5 id="line85">submit_button</h5><p id="line86">Shows a button that says "Submit".</p><h5 id="line88">write</h5><p id="line89">Creates a larger version of input_text.</p><h5 id="line91">mono</h5><p id="line92">Creates unformatted text.</p><h3 id="line94">Systematics</h3><p id="line95">Systematics change the way a builder works, or edit the physical page itself. They are always capitalized. They can be used to make builders more useful, such as wrapping a section of content in a page. Systematics are also used to style and add interactive function.</p><h5 id="line96">HEAD</h5><p id="line97">Changes tab name in browser.</p><h5 id="line99">BEGIN &amp; END</h5><p id="line100">Starts and ends an element. Can have the following arguments:</p><li id="line102">echo</li><li id="line103">title</li><li id="line104">header1</li><li id="line105">header2</li><li id="line106">header3</li><li id="line107">header4</li><li id="line108">header5</li><li id="line109">unordered</li><li id="line110">ordered</li><li id="line111">container</li><li id="line112">code_block</li><li id="line113">button</li><li id="line114">link (requires link after BEGIN attribute, but END attribute will not take it.)</li><p id="line116">Find the references above.</p><h5 id="line118">IMPORT</h5><p id="line119">Currently takes 3 arguments: "stellar", "retro", and "docs".</p>
+<script src="source.js"></script>
+</body></html>

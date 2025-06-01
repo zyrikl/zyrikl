@@ -163,7 +163,7 @@ function runner(input) {
     function importStyles(text) {
         stellar = "<style>@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body {background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThMsAC4ZB3iGlRnyZgXG70vLObRDYs4njwMIuKBaNEOwH2KOY:https://www.mccormick.northwestern.edu/images/news/2023/07/what-does-a-twinkling-star-sound-like-take-a-listen-social.jpg&s');background-size:contain;color: white !important;font-family: Spectral;}a {color: red;}input{background:rgba(255, 255, 255, 0.2);color: white;}textarea{background:rgba(255, 255, 255, 0.2);color: white;}button{background:rgba(255, 255, 255, 0.2);color: white;}iframe{color:white;}code{background:rgba(255,255,255,0.2);}</style>"
         retro = "<style>@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Pixelify Sans';background:rgba(20,75,20,1);color:rgba(100,255,100,1);}a{color:rgba(155,50,205,1);}</style>";
-        docs = "<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Noto Sans'!important;background:black;color:white;width:900px;padding:20px;}h1{margin:30px;}h2{margin:25px;}h3{margin:20px;}h4{margin:10px;}h5{margin:5px;}h6{margin:5px;}a{color:red;}</style>";
+        docs = "<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');body{font-family:'Noto Sans'!important;background:black;color:white;width:900px;padding:20px;}h1{margin:30px;}h2{margin:25px;}h3{margin:20px;}h4{margin:10px;}h5{margin:5px;}h6{margin:5px;}a{color:red;}code{width:90% !important;}</style>";
         if (text === 'IMPORT "stellar"') {
             totalInnerHTML += stellar;
         }
@@ -220,7 +220,7 @@ function runner(input) {
         keyWordTwoArg("link", "a", changelinesh, "href");
         keyWordTwoArg("web_driver", "iframe", changelinesh, "src");
         closedTag("image", "img", changelinesh, "src");
-        noArg("line", "hr", changelinesh);
+        noArg("rule", "hr", changelinesh);
         noArg("break", "br", changelinesh);
         beginEnd("div", "container", changelinesh);
         closedTag("input_text", "input type='text'", changelinesh, "placeholder");

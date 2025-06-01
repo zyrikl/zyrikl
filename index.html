@@ -2,8 +2,21 @@
     HEAD "Zyrikl Documentation";
     IMPORT "docs";
 
+    title "Zyrikl Tutorial";
+    rule;
+    echo "Zyrikl is a project created by Charles Wang. It makes coding a website much, much easier.";
+    header4 "Starting your first app";
+    echo "Zyrikl can be used anywhere. In your HTML file, type in: ";
+    BEGIN code_block
+    print "&lt;zyrikl&gt;";
+    print "&nbsp;&nbsp;&nbsp;&nbsp;echo "Hello, World";";
+    print "&lt;/zyrikl&gt;";
+    print "&lt;script src="https://cdn.jsdelivr.net/gh/zyrikl/zyrikl/source.js"&gt;&lt;/script&gt;";
+    END code_block;
+    echo "View the document. It should show a webpage with the words "Hello, World" on it. Now, onto the actual code!"
+
     title "Zyrikl Documentation";
-    line;
+    rule;
 
     header2 "Builders";
     echo "Builders are functions that add blocks of content onto your website. They are described using line IDs with the following syntax: #line4 for line 4. Zyrikl is content-based, so any line in the Zyrikl code gets parsed to the compiler. The Zyrikl Development Team does not recommend single line code, due to our unique styling method.";
