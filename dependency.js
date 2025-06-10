@@ -52,16 +52,16 @@ function runner(prototype) {
     var lineSplit = [];
 
     function openElement1(element, keyword, string) {
-        /* if (string[0] === keyword) {
+        if (string[0] === keyword) {
             var returnString = "";
             var stringList = string.split("");
             stringList.splice(0, 1);
             stringList.splice(stringList.length-1, 1);
             for (var a = 0; a < stringList.length; a++) {
                 returnString += stringList[a];
-            } */
+            }
             htmlWebOutput = htmlWebOutput + `<`+element+`>`+string[1]+`</`+element+`>`;
-        // }
+        }
     }
 
     for (var a = 0; a < linesList.length; a++) {
