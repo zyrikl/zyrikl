@@ -2,6 +2,14 @@
     BEGIN italic
         echo "test";
         bold "test";
+        link "https://google.com" "test";
     END italic
+    enter
+    line
+    enter
+    BEGIN link "https://google.com"
+        echo "test"
+    END link;
+    title "test";
 </zyrikl>
 <script src="dependency.js"></script>

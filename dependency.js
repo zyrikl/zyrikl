@@ -1,4 +1,11 @@
+/*
+Copyright (C) 2025, Zyrikl, Inc. This software may not be used without permission from the 
+authors. Permission may be granted from Charles Wang (Zyrikl). This software is provided
+as is, and any changes made to the original content is not allowed. Usage of this script
+is provided under Github User Content and jsDelivr.
+*/
 function runner(prototype) {
+    var line = 0;
     htmlWebOutput = "";
 
     function findArgs(string) {
@@ -72,7 +79,7 @@ function runner(prototype) {
             for (var b = 0; b < insideList.length; b++) {
                 inside += insideList[b];
             }
-            htmlWebOutput += `<${element}>${inside}</${element}>`;
+            htmlWebOutput += `<${element} id="line_${line}">${inside}</${element}>`;
         }
     }
 
@@ -97,11 +104,11 @@ function runner(prototype) {
             for (var b = 0; b < insideList.length; b++) {
                 inside += insideList[b];
             }
-            htmlWebOutput += `<${element} ${attribute}=${string[1]}>${inside}</${element}>`;
+            htmlWebOutput += `<${element} ${attribute}=${string[1]} id="line_${line}">${inside}</${element}>`;
         }
     }
 
-    function openBeginEnd(element, keyword, string) {
+    function openBeginEnd1(element, keyword, string) {
         var newAskSemicolon = "";
         var askSemicolon = string[string.length-1];
         var askSemicolonList = askSemicolon.split("");
@@ -115,7 +122,7 @@ function runner(prototype) {
 
         if (string[0] === `BEGIN`) {
             if (string[1] === keyword) {
-                htmlWebOutput += `<${element}>`;
+                htmlWebOutput += `<${element} id="line_${line}">`;
             }
         }
         if (string[0] === `END`) {
@@ -124,6 +131,47 @@ function runner(prototype) {
             }
         }
     }
+
+    function openBeginEnd2(element, attribute, keyword, string) {
+        var newAskSemicolon = "";
+        var askSemicolon = string[string.length-1];
+        var askSemicolonList = askSemicolon.split("");
+        if (askSemicolon[askSemicolon.length-1] === `;`) {
+            askSemicolonList.splice(askSemicolonList.length-1,1);
+        }
+        for (var a = 0; a < askSemicolonList.length; a++) {
+            newAskSemicolon += askSemicolonList[a];
+        }
+        string[string.length-1] = newAskSemicolon;
+
+        if (string[0] === `BEGIN`) {
+            if (string[1] === keyword) {
+                htmlWebOutput += `<${element} ${attribute}=${string[2]} id="line_${line}">`;
+            }
+        }
+        if (string[0] === `END`) {
+            if (string[1] === keyword) {
+                htmlWebOutput += `</${element}>`;
+            }
+        }
+    }
+
+    function closedTag(element, keyword, string) {
+        var newAskSemicolon = "";
+        var askSemicolon = string[string.length-1];
+        var askSemicolonList = askSemicolon.split("");
+        if (askSemicolon[askSemicolon.length-1] === `;`) {
+            askSemicolonList.splice(askSemicolonList.length-1,1);
+        }
+        for (var a = 0; a < askSemicolonList.length; a++) {
+            newAskSemicolon += askSemicolonList[a];
+        }
+        string[string.length-1] = newAskSemicolon;
+
+        if (string[0] === keyword) {
+            htmlWebOutput += `<${element} id="line_${line}"/>`;
+        }
+    } 
 
     function singleLine(keyword, string) {
         if (string[0] === keyword) {
@@ -144,17 +192,72 @@ function runner(prototype) {
     }
 
     for (var a = 0; a < linesList.length; a++) {
+        line++;
         lineSplit = findArgs(linesList[a]);
         singleLine("echo", lineSplit);
 
         openElement1("p", "paragraph", lineSplit);
         openElement1("strong", "bold", lineSplit);
         openElement1("em", "italic", lineSplit);
+        openElement1("title", "HEAD", lineSplit);
+        openElement1("h1", "title", lineSplit);
+        openElement1("h2", "header_1", lineSplit);
+        openElement1("h3", "header_2", lineSplit);
+        openElement1("h4", "header_3", lineSplit);
+        openElement1("h5", "header_4", lineSplit);
+        openElement1("h6", "header_5", lineSplit);
+        openElement1("li", "list", lineSplit);
+        openElement1("code", "code_block", lineSplit);
 
-        openBeginEnd("p", "paragraph", lineSplit);
-        openBeginEnd("strong", "bold", lineSplit);
-        openBeginEnd("em", "italic", lineSplit);
+        openElement2("a", "href", "link", lineSplit);
+        openElement2("iframe", "src", "web_driver", lineSplit);
+
+        openBeginEnd1("p", "paragraph", lineSplit);
+        openBeginEnd1("strong", "bold", lineSplit);
+        openBeginEnd1("em", "italic", lineSplit);
+        openBeginEnd1("ul", "bulleted_list", lineSplit);
+        openBeginEnd1("div", "container", lineSplit);
+        openBeginEnd1("code", "code_block", lineSplit);
+
+        openBeginEnd2("a", "href", "link", lineSplit)
+        openBeginEnd2("ol", "type", "ordered_list", lineSplit);
+
+        closedTag("br", "enter", lineSplit);
+        closedTag("hr", "line", lineSplit);
     }
+    requiredHTML1 = `
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Zyrikl Website</title>
+        <style>
+            h1 {
+                font-size: 70pt;
+            }
+            h2 {
+                font-size: 60pt;
+            }
+            h3 {
+                font-size: 50pt;
+            }
+            h4 {
+                font-size: 40pt;
+            }
+            h5 {
+                font-size: 30pt;
+            }
+            h6 {
+                font-size: 20pt;
+            }
+        </style>
+    </head>
+    <body>`;
+    requiredHTML2 = `
+    </body>
+</html>`;
+    prototype.insertAdjacentHTML("beforebegin", requiredHTML1);
+    prototype.insertAdjacentHTML("afterend", requiredHTML2);
     prototype.innerHTML = htmlWebOutput;
 }
 runner(document.querySelector("zyrikl"));
