@@ -3,6 +3,8 @@ Copyright (C) 2025, Zyrikl, Inc. This software may not be used without permissio
 authors. Permission may be granted from Charles Wang (Zyrikl). This software is provided
 as is, and any changes made to the original content is not allowed. Usage of this script
 is provided under Github User Content and jsDelivr.
+
+Zyrikl v.1.1.0
 */
 function runner(prototype) {
     var line = 0;
@@ -156,7 +158,7 @@ function runner(prototype) {
         }
     }
 
-    function closedTag(element, keyword, string) {
+    function closedTag1(element, keyword, string) {
         var newAskSemicolon = "";
         var askSemicolon = string[string.length-1];
         var askSemicolonList = askSemicolon.split("");
@@ -170,6 +172,23 @@ function runner(prototype) {
 
         if (string[0] === keyword) {
             htmlWebOutput += `<${element} id="line_${line}"/>`;
+        }
+    }
+
+    function closedTag2(element, attribute, keyword, string) {
+        var newAskSemicolon = "";
+        var askSemicolon = string[string.length-1];
+        var askSemicolonList = askSemicolon.split("");
+        if (askSemicolon[askSemicolon.length-1] === `;`) {
+            askSemicolonList.splice(askSemicolonList.length-1,1);
+        }
+        for (var a = 0; a < askSemicolonList.length; a++) {
+            newAskSemicolon += askSemicolonList[a];
+        }
+        string[string.length-1] = newAskSemicolon;
+
+        if (string[0] === keyword) {
+            htmlWebOutput += `<${element} ${attribute}=${string[1]} id="line_${line}"/>`;
         }
     } 
 
@@ -206,11 +225,14 @@ function runner(prototype) {
         openElement1("h4", "header_3", lineSplit);
         openElement1("h5", "header_4", lineSplit);
         openElement1("h6", "header_5", lineSplit);
-        openElement1("li", "list", lineSplit);
+        openElement1("li", "list_entry", lineSplit);
         openElement1("code", "code_block", lineSplit);
+        openElement1("pre", "mono", lineSplit);
+        openElement1("button", "button", lineSplit);
 
         openElement2("a", "href", "link", lineSplit);
         openElement2("iframe", "src", "web_driver", lineSplit);
+        openElement2("textarea", "placeholder", "write", lineSplit);
 
         openBeginEnd1("p", "paragraph", lineSplit);
         openBeginEnd1("strong", "bold", lineSplit);
@@ -218,12 +240,20 @@ function runner(prototype) {
         openBeginEnd1("ul", "bulleted_list", lineSplit);
         openBeginEnd1("div", "container", lineSplit);
         openBeginEnd1("code", "code_block", lineSplit);
+        openBeginEnd1("pre", "mono", lineSplit);
+        openBeginEnd1("button", "button", lineSplit);
 
         openBeginEnd2("a", "href", "link", lineSplit)
         openBeginEnd2("ol", "type", "ordered_list", lineSplit);
 
-        closedTag("br", "enter", lineSplit);
-        closedTag("hr", "line", lineSplit);
+        closedTag1("br", "enter", lineSplit);
+        closedTag1("hr", "line", lineSplit);
+
+        closedTag2("img", "src", "image", lineSplit);
+        closedTag2("input type='text'", "placeholder", "input_text", lineSplit);
+        closedTag2("input type='password'", "placeholder", "input_password", lineSplit);
+        closedTag2("input type='submit'", "placeholder", "submit_button", lineSplit);
+        closedTag2("link rel='stylesheet'", "href", "IMPORT", lineSplit);
     }
     requiredHTML1 = `
 <!DOCTYPE html>
